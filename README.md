@@ -6,7 +6,7 @@ Data Visualisation for blood data SMART-on-FHIR app at NHS Hackday 14 May 2016
 
 Join us on Slack:
 
-https://hackday-nhs-14may2016.slack.com
+https://hackday-nhs-14may2016.slack.com/x-42958401382-42964138192/signup
 
 ## FHIR Resources
 
