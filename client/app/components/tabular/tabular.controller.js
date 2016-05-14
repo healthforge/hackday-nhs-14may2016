@@ -8,8 +8,14 @@ class TabularController {
   }
   
   loadData(NgTableParams) {
-    this.data = [{name: 'Moroni', age: 50} /*,*/];
-    // this.tableParams = new NgTableParams({}, { dataset: this.data})
+    // this.data = [{name: 'Moroni', age: 50} /*,*/];
+    this.data = [];
+    var promise = this.LabResultsService.getSeries('PLT');
+    var vm = this;
+    promise.then(function(res) {
+      vm.data = res;
+    });
+    
     this.tableParams = new NgTableParams(
       {page: 1, count: 10},
       {
@@ -21,8 +27,9 @@ class TabularController {
           var count = params.count();
           var page = params.page();
           $defer.resolve(this.data);
+        }
       }
-    });
+    );
   }
 }
 
