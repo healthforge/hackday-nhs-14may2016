@@ -1,0 +1,134 @@
+key,code,description
+ALB,1751-7,"Albumin, Serum"
+ALP,6768-6,Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma
+ALT,1742-6,"Alanine Aminotransferase (ALT) (GPT), Serum"
+BILI,1975-2,"Bilirubin, Total, Serum"
+CA,17861-6,"Calcium, Serum"
+CREA,2160-0,"Creatinine with Estimated GFR (MDRD), Serum"
+GFR,33914-3,Glomerular Filtration Rate
+HBGL,718-7,Haemoglobin
+HCG,32286-7,human chorionic gonadotropin 
+K,2823-3,"Potassium, Serum"
+LY,731-0,Lymphocyte
+MG,19123-9,"Magnesium, Serum"
+MTX,34628-8,Methotrexate
+NA,2951-2,"Sodium, Body Fluid"
+NE,751-8,Neutrophil
+PHOS,2777-1,"Phosphorus (Inorganic), Serum"
+PLT,777-3,Platelet
+UREA,63481-6,Urea Concentration
+WCC,6690-2,White Cell Count
+x25D2,49054-0,25-Hydroxy D2
+x25D3,1989-3,25-Hydroxy D3
+xA1G,13978-2,Alpha-1-globulins %
+xA1GG,2865-4,Alpha-1-globulins
+xA2G,13981-6,Alpha-2-globulins %
+xA2GG,2868-8,Alpha-2-globulins
+xALBG,1758-2,Albumin (electrophoresis)
+xALBP,13980-8,Abumin (electrophoresis) %
+xAMY,1799-6,Amylase concentration
+xAPRA,5894-1,APTT Ratio
+xAPTM,14979-9,APTT
+xAPTT,14979-9,"Activated Partial Thromboplastin Time (APTT), Plasma"
+xB1G,32732-0,Beta-1-globulins %
+xB1GG,32730-4,Beta-1-globulins
+xB2G,32733-8,Beta-2-globulins %
+xB2GL,32731-2,Beta-2-globulins
+xB2M,1952-1,"Beta-2-Microglobulin (Beta-2-M), Serum"
+xBA,704-7,Basophil Count
+xBLAA,30376-8,Blasts Count
+xC3,4485-9,"Complement C3, Serum"
+xC4,4498-2,"Complement C4, Serum"
+xCBIL,1968-7,Conjugated Bilirubin
+xCCA,18281-6,Corrected Calcium
+xCFAD,,
+xCFCB,,
+xCFCH,,
+xCFLA,,
+xCFLB,,
+xCFMP,,
+xCFPF,,
+xCFRS,,
+xCHDR,9830-1,Cholesterol:HDL ratio
+xCHOL,2093-3,"Cholesterol, Total, Serum"
+xCMV1,13949-3,"Cytomegalovirus (CMV) Antibodies, IgG, Serum"
+xCORT,2143-6,"Cortisol, Serum"
+xCRBC,792-2,Red Cell Count (CSF)
+xCRP,1988-5,"C-Reactive Protein (CRP), Serum"
+xCRQ,2157-6,CREATININE (ENZYMATIC)
+xCTP,2880-3,CSF Protein
+xCWBC,806-0,White Cell Count (CSF)
+xCYCA,53828-0,Cyclosporine Level
+xDATP,,(Not a lab test)
+xDNAE,32677-7,DNA ELISA result
+xEO,711-2,Eosinophil
+xESR,4537-7,Erythrocyte Sedimention Rate
+xFE,2498-4,Iron
+xFERR,20567-4,"Ferritin, Serum"
+xFIB,3255-7,"Fibrinogen, Plasma"
+xFLDH,2532-0,"Lactate Dehydrogenase (LD), Fluid"
+xFSH,15067-2,"Follicle-Stimulating Hormone (FSH), Serum"
+xFT3,3051-0,Free T3
+xFT4,3024-7,Free T4
+xGENT,3663-2,"Gentamicin, Peak, Serum"
+xGFR,33914-3,Glomerular Filtration Rate
+xGG,13983-2,Gamma-globulins %
+xGGG,2874-6,Gamma-globulins
+xGGT,2324-2,"Gamma-Glutamyltransferase (GGT), Serum"
+xGLU,2345-7,Glucose
+xHAPT,46127-7,"Haptoglobin, Serum"
+xHBA2,4551-8,Haemoglobin A2
+xHBF,4580-7,"Hemoglobin F, Blood"
+xHBSR,10900-9,Hepatitis B Virus SURFACE ANTIBODY
+xHCRP,30522-7,CRP (LOW LEVEL)
+xHCTU,4544-3,Haematocrit
+xHDL,2085-9,"Cholesterol, HDL, Serum"
+xHTRT,6598-7,CARDIAC TROPONIN T
+xIBS,14801-5,Iron Binding Saturation
+xIG,51584-1,Immature Granulocyte Count
+xIGA,2458-8,"Immunoglobulin A (IgA), Serum"
+xIGG,2465-3,"Immunoglobulin G (IgG), Serum"
+xIGM,2472-9,"Immunoglobulin M (IgM), Serum"
+xIGP,71695-1,Immature Granulocyte %
+xINR,6301-6,International Normalised Ratio
+xKAPA,11050-2,Kappa Free Light Chain
+xKLRA,15189-4,Kappa / Lambda Ratio
+xLACT,2524-7,Lactate
+xLAMB,11051-0,Lambda Free Light Chain
+xLDH,14804-9,"Lactate Dehydrogenase (LD), Serum"
+xLDLU,13457-7,LDL Cholesterol
+xLH,10501-5,"Luteinizing Hormone (LH), Serum"
+xMCGL,786-4  ,Mean Corpuscular Haemoglobin Concentration
+xMCHU,785-6 ,Mean Corpuscular Haemoglobin
+xMCVU,787-2,Mean Cell Volume
+xMET,32703-1,Metamyelocyte Count
+xMO,742-7,Monocyte Count
+xMPVU,32623-1,Mean Platelet Volume
+xMYEA,30446-9,Myelocyte Count
+xNHDL,43396-1,Non HDL Cholesterol
+xNRB,19048-8,Nucleated RBCs % (same as NRP)
+xNRC,30392-5,Nucleated Red Blood Cell Count
+xNRP,19048-8,Nucleated Red Blood Cell %
+xOEST,2243-4,OESTRADIOL
+xPER,,(Not a lab test)
+xPHOS,2777-1,"Phosphorus (Inorganic), Serum"
+xPROA,26523-1,Promyelocyte Count
+xPROT,2885-2,Total Protein
+xPT,5902-2,"Prothrombin Time, Plasma"
+xPTH,2731-8,"Parathyroid Hormone (PTH), Serum"
+xRCC,789-8,Red Cell Count
+xRDWU,788-0,Red Cell Distribution Width
+xREP,14196-0,Reticulocyte Count
+xRET,17849-1,Reticulocyte Percentage
+xSFOL,2284-8,"Folate, Serum"
+xTIBC,2500-7,Total Iron Binding Capacity
+xTPMT,36922-3,Thiopurine S-methyltransferase Test
+xTPO,8099-4,"Thyroperoxidase (TPO) Antibodies, Serum"
+xTRAB,40673-6,TSH-RECEPTOR ANTIBODY
+xTRIG,2571-8,"Triglycerides, Serum"
+xTSH,3016-3,Thyroid Stimulating Hormone
+xUA,3084-1,Uric acid
+xUG6P,32546-4,GLUCOSE 6 PHOSPHATE
+xUIBC,2501-5,Unbound Iron Binding Capacity
+xVB12,2132-9,"Vitamin B12 Assay, Serum"
+xVITD,62290-2,"1,25-Dihydroxyvitamin D, Serum"
