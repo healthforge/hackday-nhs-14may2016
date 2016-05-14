@@ -1,0 +1,37 @@
+key,drugType,dayNo,route,unadjustedDose,unit,doseAdministered,code,description,dmndExtension,drugName
+ACETAZOLAMIDE,Osmotic diuretic,10,Oral,500,mg,500,376092000,Acetazolamide 500mg m/r capsule (product),8271411000001100,Acetazolamide 500mg/5ml oral solution (product)
+ALEMTUZUMAB,Monoclonal Antibody,0,IV Infusion,20,mg,20,416588003,Alemtuzumab 30mg/mL infusion concentrate (product),na,
+ARSENIC TRIOXIDE,Cytotoxic,15,IV Infusion,0.25,mg,15,409254002,Arsenic trioxide 1mg/mL injection 10mL ampule (product),,
+AZACITIDINE,Cytotoxic,1,IV Infusion,75,mg,125,412332006,Azacitidine 100mg powder for injection vial (product),15242511000001100,
+CALCIUM FOLINATE(Folinic Acid),Biological Modifer,11,IV BOLUS / ORAL,15,mg,30,327587003,Folinic acid 15mg tablet (product),12289911000001100,Calcium folinate 15mg/5ml oral suspension (product)
+CETRORELIX,Biological Modifer,1,SUBCUT. BOLUS,0.25,mg,0.25,326086009,Cetrorelix 0.25mg powder and solvent for injection solution vial (product),na,
+CHLORPHENAMINE,Anti-Histamine,1,IV Bolus,10,mg,10,320707000,Chlorpheniramine maleate 10mg/1mL injection (product),na,
+CISPLATIN,Cytotoxic,1,IV Infusion,25,mg,43,326977001,Cisplatin 1mg/mL infusion concentrate 50mL vial (product),na,
+CYCLOPHOSPHAMIDE,Cytotoxic,1,IV Infusion,800,mg,1420,347381008,Cyclophosphamide 20mg/mL infusion solution 200mL vial (product),na,
+CYTARABINE,Cytotoxic,1,INTRATHECAL,70,mg,70,326853006,Cytarabine 100mg/mL injection solution 1mL vial (product),na,
+DAUNORUBICIN,Cytotoxic,1,IV Bolus,60,mg,97.5,409238000,Daunorubicin hydrochloride 5mg/mL injection solution (product),,
+DEXAMETHASONE,Corticosteroid,-6,ORAL / IV,8,mg,8,376688006,Dexamethasone 4mg tablet (product),,
+DOMPERIDONE,Anti-Emetic,1,Oral,20,mg,10,322077002,Domperidone 10mg tablet (product),18083711000001100,Domperidone 10mg orodispersible tablets sugar free (product)
+DOXORUBICIN,Cytotoxic,1,IV Bolus,40,mg,70,347396007,Doxorubicin hydrochloride 150mg/75mL infusion (product),na,
+ETOPOSIDE,Cytotoxic,1,IV Infusion,60,mg,100,384894005,Etoposide 100mg infusion concentrate vial (product),4747011000001100,Etoposide 200mg/10ml solution for injection vials (product)
+FILGRASTIM (G-CSF),Biological Modifer,13,SUBCUT. BOLUS,300,microgram,300,376099009,Filgrastim 300mcg/mL solution (product),na,
+FLUDARABINE,Cytotoxic,1,IV Infusion,30,mg,47.5,327016009,Fludarabine 50mg powder for injection solution vial (product),12540011000001100,Fludarabine phosphate 50mg/2ml solution for injection vials (product)
+HAEMATOPOIETIC PROG.CELL (HPC),Anaesthetic,0,IV Infusion,1,unit,1,???,,,
+HYDRATION,Hydration,10,IV Infusion,3000,ml,3000,???,,,
+IDARUBICIN,Cytotoxic,1,IV Bolus,8,mg,13,374106009,Idarubicin hydrochloride 1mg/mL injection solution 10mL vial (product),,
+IFOSFAMIDE,Cytotoxic,1,IV Infusion,1500,mg,2600,347438006,Ifosfamide 80mg/mL infusion solution 50mL vial (product),na,
+MELPHALAN,Cytotoxic,-2,IV Infusion,140,mg,260,326765004,Melphalan 50mg powder and solvent for injection solution vial (product),na,
+MESNA,Cytoprotective,1,IV Infusion,360,mg,600,400638002,Mesna 1g injection solution 10mL vial (product),na,
+METHOTREXATE,Cytotoxic,10,IV Infusion,300,mg,550,347461008,Methotrexate 12.5mg/mL infusion solution 60mL vial (product),na,
+METHOTREXATE,Cytotoxic,10,IV Infusion,2700,mg,4800,326884008,Methotrexate 25mg/mL injection solution 200mL vial (product),na,
+METHYLPREDNISOLONE,Corticosteroid,1,IV Infusion,500,mg,500,325400001,Methylprednisolone 50mg/mL injection solution 10mL vial (product),na,
+METOCLOPRAMIDE,Anti-Emetic,1,Oral,20,mg,10,322091008,Metoclopramide hydrochloride 10mg tablet (product),8796911000001100,Metoclopramide 12.5mg/5ml oral solution (product)
+ONDANSETRON,Anti-Emetic,1,ORAL / IV,8,mg,8,410928004,Ondansetron 8mg orally disintegrating tablet (product),4072111000001100,Ondansetron 4mg oral lyophilisates sugar free (product)
+PARACETAMOL,Analgesic,1,Oral,1000,mg,1000,322236009,Paracetamol 500mg tablet (product),na,
+PENTAMIDINE,Anti-Biotic,1,NEBULISED,300,mg,300,325004002,Pentamidine isethionate 300mg/5mL nebulizer solution (product),na,
+POTASSIUM CHLORIDE,Electrolyte,10,IV Infusion,80,mmols,80,347490002,Potassium chloride 40mmol/sodium chloride 0.9% infusion solution 1L bag (product),22498311000001100,Potassium chloride 15% (potassium 100mmol/50ml) solution for infusion 50ml vials (product)
+RITUXIMAB,Monoclonal Antibody,1,IV Infusion,375,mg,660,327394004,Rituximab 10mg/mL infusion concentrate 50mL vial (product),24856511000001100,1.4g/11.7ml solution for injection vials (product)
+SALBUTAMOL,Other,1,NEBULISED,5,mg,5,320171009,Salbutamol 5mg/2.5mL nebulization unit (product),na,
+TRETINOIN,Biological Modifer,29,Oral,22.5,mg,20,327390008,Tretinoin 10mg capsule (product),na,
+TRIPTORELIN,Biological Modifer,1,SUBCUT. BOLUS,3.75,mg,3.75,374178006,Triptorelin pamoate 3.75mg/vial powder (product),na,
+VINCRISTINE,Cytotoxic,1,IV Infusion,1.5,mg,2,347530002,Vincristine sulfate 5mg/50mL infusion (product),na,

@@ -1,0 +1,11 @@
+<div>
+  <h1>{{ vm.name }}</h1>
+  <div>
+  	<button class="btn btn-default" ng-click="vm.loadData()">Reload data</button>
+  	<p>&nbsp;</p>
+  </div>
+  <p>(Patient Id = {{vm.$stateParams.patientId}})</p>
+  <h4>Result:</h4>
+  <p class="fhirResult">{{ vm.fhirResult }}</p>
+  <d3-stacked-bar-chart data="vm.data"></d3-stacked-bar-chart>
+</div>

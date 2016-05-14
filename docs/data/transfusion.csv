@@ -1,0 +1,223 @@
+Product Type,Product Name,Blood Group,Special Flags,Phenotypes,Status,Status Date-Time (F),Cost (pounds.pence),Patient Hospital Number (F)
+BLOOD,Red Cells Additive soln LD,B POS,"CMV Neg., HbS Neg., Filtered",D+ C+ c+ E+ e+ K-,Transfused,01/10/2014 14:45,123.24,41915278
+BLOOD,Red Cells Additive soln LD,B POS,"CMV Neg., Filtered",D+ K-,Transfused,30/09/2014 18:15,123.24,41915278
+PLT,"PLTS, aph, EL, Pk 2",B POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,02/10/2014 14:20,221.2,41915278
+BLOOD,Red Cells Additive soln LD,B POS,"CMV Neg., Irradiated, Filtered",D+ E- K-,Transfused,08/10/2014 11:55,123.24,41915278
+PLT,"PLTS, aph, EL, Pk 2",B NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,06/10/2014 19:50,221.2,41915278
+BLOOD,Red Cells Additive soln LD,B NEG,"CMV Neg., HbS Neg., Filtered",D- C- E- Cw- K-,Transfused,08/10/2014 14:00,123.24,41915278
+PLT,"PLTS, aph, EL, Pk 1",B POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,09/10/2014 15:05,221.2,41915278
+BLOOD,Red Cells Additive soln LD,B POS,"HbS Neg., Filtered",D+ C- E- Cw- M- S- K- Fya- Lua- Kpa-,Transfused,14/10/2014 21:10,123.24,41915278
+BLOOD,Red Cells Additive soln LD,B POS,Filtered,D+ C+ c+ E- e+ K-,Transfused,14/10/2014 18:45,123.24,41915278
+PLT,"PLTS, aph, EL, Pk 1",A POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,12/10/2014 15:50,221.2,41915278
+PLT,"PLTS, aph, EL, ",B POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,15/10/2014 13:05,221.2,41915278
+PLT,"PLTS, aph, EL, Pk 2",B POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,17/10/2014 22:20,221.2,41915278
+BLOOD,Red Cells Additive soln LD,B POS,Filtered,D+ E- K-,Transfused,19/10/2014 17:30,123.24,41915278
+BLOOD,Red Cells Additive soln LD,B POS,"HbS Neg., Filtered",D+ c- E- K-,Transfused,19/10/2014 14:10,123.24,41915278
+BLOOD,"Red Cells, Washed (Automated)",B POS,"HbS Neg., Irradiated, Filtered",D+ E- K-,Transfused,21/11/2014 14:30,241.81,41915278
+BLOOD,"Red Cells, Washed (Automated)",B POS,"HbS Neg., Irradiated, Filtered",D+ E- K-,Transfused,21/11/2014 17:40,241.81,41915278
+PLT,"PLTS, aph, EL, Pk 2",AB POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,22/11/2014 16:45,221.2,41915278
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Irradiated, Filtered",D- C- E- Cw- S- K- Fyb- Jka- Lua- Kpa-,Transfused,29/11/2014 18:00,123.24,41915278
+BLOOD,Red Cells Additive soln LD,O POS,"CMV Neg., Irradiated, Filtered",D+ E- K-,Transfused,29/11/2014 21:30,123.24,41915278
+PLT,"PLTS, aph, EL, Pk 1",B POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,25/11/2014 18:45,221.2,41915278
+PLT,"PLTS, aph, EL, Pk 2",B POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,29/11/2014 16:45,221.2,41915278
+PLT,"PLTS, aph, EL, Pk 3",B NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,01/12/2014 17:45,221.2,41915278
+PLT,"PLTS, aph, EL, Pk 1",B POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,05/12/2014 15:30,221.2,41915278
+BLOOD,Red Cells Additive soln LD,B POS,"CMV Neg., Irradiated, Filtered",D+ K-,Transfused,30/01/2015 06:20,123.24,41915278
+BLOOD,Red Cells Additive soln LD,B NEG,"HbS Neg., Irradiated, Filtered",D- C- c- K- Fyb-,Transfused,30/01/2015 09:45,123.24,41915278
+PLT,"PLTS, aph, EL, Pk 2",B POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,25/01/2015 10:15,221.2,41915278
+PLT,"PLTS, aph, EL, Pk 1",A POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,29/01/2015 16:08,221.2,41915278
+PLT,"PLTS, aph, EL, Pk 1",B POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,03/02/2015 11:10,221.2,41915278
+BLOOD,Red Cells Additive soln LD,O POS,"HbS Neg., Irradiated, Filtered",D+ C- E- Cw- K- Fyb- Jka- Lua-,Transfused,03/03/2015 18:40,123.24,41915278
+BLOOD,Red Cells Additive soln LD,O POS,"CMV Neg., Irradiated, Filtered",D+ K-,Transfused,03/03/2015 15:50,123.24,41915278
+PLT,"PLTS, aph, EL, Pk 2",B NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,08/03/2015 11:00,221.2,41915278
+PLT,"PLTS, aph, EL, Pk 1",B POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,06/03/2015 19:30,221.2,41915278
+PLT,"PLTS, aph, EL, Pk 1",B POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,11/03/2015 19:20,221.2,41915278
+BLOOD,Red Cells Additive soln LD,B POS,"HbS Neg., Irradiated, Filtered",D+ C- K-,Transfused,30/03/2015 17:45,123.24,41915278
+BLOOD,Red Cells Additive soln LD,B POS,"HbS Neg., Irradiated, Filtered",D+ C- E- Cw- S- K- Fya- Jka- Lua- Kpa-,Transfused,30/03/2015 22:38,123.24,41915278
+BLOOD,Red Cells Additive soln LD,O POS,"CMV Neg., HbS Neg., Irradiated, Filtered",D+ C- E- Cw- s- K- Fya- Lua- Kpa-,Transfused,26/06/2015 15:10,123.24,41915278
+BLOOD,Red Cells Additive soln LD,O NEG,"HbS Neg., Irradiated, Filtered",D- C- E- Cw- S- K- Jkb-,Transfused,04/07/2015 23:15,123.24,41915278
+PLT,"PLTS, aph, EL, Pk 1",B POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,04/07/2015 17:50,221.2,41915278
+PLT,"PLTS, aph, EL, Pk 3",B POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,07/07/2015 16:45,221.2,41915278
+BLOOD,Red Cells Additive soln LD,O POS,"CMV Neg., HbS Neg., Irradiated, Filtered",D+ C- e- Cw- S- K- Fya- Jkb- Lua- Kpa-,Transfused,17/07/2015 10:35,123.24,41915278
+BLOOD,Red Cells Additive soln LD,O POS,"CMV Neg., Irradiated, Filtered",D+ E- K-,Transfused,17/07/2015 12:35,123.24,41915278
+BLOOD,Red Cells Additive soln LD,B NEG,"HbS Neg., Irradiated, Filtered",D- C- E- Cw- S- K- Jkb- Kpa-,Transfused,31/07/2015 01:50,123.24,41915278
+BLOOD,Red Cells Additive soln LD,B NEG,"HbS Neg., Irradiated, Filtered",D- C- E- K-,Transfused,30/07/2015 22:15,123.24,41915278
+PLT,"PLTS, aph, EL, Pk 2",AB POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,27/07/2015 13:00,221.2,41915278
+PLT,"PLTS, aph, EL, Pk 2",B POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,31/07/2015 17:47,221.2,41915278
+BLOOD,Red Cells Additive soln LD,O POS,"Irradiated, Filtered",D+ C- K-,Transfused,05/08/2015 08:05,123.24,41915278
+PLT,"PLTS, aph, EL, Pk 1",A POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,03/08/2015 23:20,221.2,41915278
+BLOOD,Red Cells Additive soln LD,A POS,"CMV Neg., Filtered",D+ K-,Transfused,13/07/2014 17:00,123.24,41723788
+BLOOD,Red Cells Additive soln LD,A POS,"CMV Neg., HbS Neg., Filtered",D+ Cw- S- K- Fya-,Transfused,04/07/2014 18:00,123.24,41723788
+BLOOD,Red Cells Additive soln LD,A NEG,"CMV Neg., HbS Neg., Filtered",D- C- c+ E- e+ Cw- M- K-,Transfused,02/07/2014 13:50,123.24,41723788
+BLOOD,Red Cells Additive soln LD,A POS,"CMV Neg., Filtered",D+ K-,Transfused,13/07/2014 19:00,123.24,41723788
+BLOOD,Red Cells Additive soln LD,A POS,"CMV Neg., HbS Neg., Filtered",D+ c- E- K-,Transfused,04/07/2014 19:40,123.24,41723788
+PLT,"PLTS, aph, EL, Pk 2",A NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,03/07/2014 00:10,221.2,41723788
+BLOOD,Red Cells Additive soln LD,A POS,"CMV Neg., Filtered",D+ C- K-,Transfused,03/07/2014 01:20,123.24,41723788
+BLOOD,Red Cells Additive soln LD,A POS,"CMV Neg., Filtered",D+ E- K-,Transfused,03/07/2014 14:30,123.24,41723788
+BLOOD,Red Cells Additive soln LD,A POS,"CMV Neg., Filtered",D+ E- K-,Transfused,03/07/2014 16:40,123.24,41723788
+BLOOD,Red Cells Additive soln LD,A POS,"CMV Neg., Filtered",D+ E- K-,Transfused,11/07/2014 19:10,123.24,41723788
+BLOOD,Red Cells Additive soln LD,A POS,"CMV Neg., Filtered",D+ E- K-,Transfused,06/07/2014 17:25,123.24,41723788
+PLT,"PLTS, aph, EL, Pk 2",A POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,03/07/2014 13:05,221.2,41723788
+PLT,"PLTS, aph, EL, Pk 2",A POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,05/07/2014 18:15,221.2,41723788
+PLT,"PLTS, aph, EL, Pk 2",A NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,06/07/2014 16:10,221.2,41723788
+BLOOD,Red Cells Additive soln LD,A POS,"CMV Neg., HbS Neg., Filtered",D+ C- E- Cw- S- K- Lua- Kpa-,Transfused,14/07/2014 18:50,123.24,41723788
+PLT,"PLTS, aph, EL, Pk 2",A POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,07/07/2014 10:45,221.2,41723788
+BLOOD,Red Cells Additive soln LD,A POS,"CMV Neg., Irradiated, Filtered",D+ E- K-,Transfused,14/07/2014 16:00,123.24,41723788
+PLT,"PLTS, aph, EL, Pk 2",A NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,12/07/2014 06:50,221.2,41723788
+PLT,"PLTS, aph, EL, Pk 3",A POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,09/07/2014 13:40,221.2,41723788
+BLOOD,Red Cells Additive soln LD,A POS,"CMV Neg., Filtered",D+ C- K-,Transfused,10/07/2014 20:50,123.24,41723788
+BLOOD,Red Cells Additive soln LD,A POS,"CMV Neg., Filtered",D+ E- K-,Transfused,11/07/2014 16:20,123.24,41723788
+PLT,"PLTS, aph, EL, Pk 1",A POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,10/07/2014 19:40,221.2,41723788
+PLT,"PLTS, aph, EL, Pk 1",A POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,14/07/2014 15:05,221.2,41723788
+PLT,"PLTS, aph, EL, Pk 1",A POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,13/07/2014 14:30,221.2,41723788
+BLOOD,Red Cells Additive soln LD,A POS,"CMV Neg., Irradiated, Filtered",D+ E- K-,Transfused,24/07/2014 06:15,123.24,41723788
+PLT,"PLTS, aph, EL, Pk 2",A POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,15/07/2014 13:00,221.2,41723788
+BLOOD,Red Cells Additive soln LD,A POS,"CMV Neg., Irradiated, Filtered",D+ C- K-,Transfused,24/07/2014 17:20,123.24,41723788
+PLT,"PLTS, aph, EL, Pk 1",A POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,16/07/2014 16:15,221.2,41723788
+BLOOD,Red Cells Additive soln LD,A POS,"CMV Neg., HbS Neg., Filtered",D+ K-,Transfused,21/07/2014 19:00,123.24,41723788
+PLT,"PLTS, aph, EL, Pk 2",A POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,17/07/2014 13:15,221.2,41723788
+PLT,"PLTS, aph, EL, Pk 3",A POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,18/07/2014 17:50,221.2,41723788
+PLT,"PLTS, aph, EL, Pk 2",A POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,19/07/2014 19:15,221.2,41723788
+PLT,"PLTS, aph, EL, Pk 2",A POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,20/07/2014 18:55,221.2,41723788
+PLT,"PLTS, aph, EL, Pk 2",A POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,21/07/2014 15:40,221.2,41723788
+BLOOD,Red Cells Additive soln LD,A POS,"CMV Neg., Filtered",D+ E- K-,Transfused,29/07/2014 09:25,123.24,41723788
+BLOOD,Red Cells Additive soln LD,A POS,"CMV Neg., HbS Neg., Filtered",D+ E- K-,Transfused,28/07/2014 15:20,123.24,41723788
+PLT,"PLTS, aph, EL, Pk 3",A POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,22/07/2014 15:55,221.2,41723788
+PLT,"PLTS, aph, EL, Pk 3",A POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,23/07/2014 21:42,221.2,41723788
+PLT,"PLTS, aph, EL, Pk 2",A POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,25/07/2014 16:30,221.2,41723788
+BLOOD,Red Cells Additive soln LD,O POS,"CMV Neg., HbS Neg., Irradiated, Filtered",D+ c- E- Cw- K- Fya- Jka- Lua-,Transfused,21/08/2014 19:47,123.24,41723788
+BLOOD,Red Cells Additive soln LD,O POS,"CMV Neg., Irradiated, Filtered",D+ C- K-,Transfused,22/08/2014 07:45,123.24,41723788
+PLT,"PLTS, aph, EL, Pk 2",A POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,24/08/2014 14:55,221.2,41723788
+PLT,"PLTS, aph, EL, Pk 1",A POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,24/08/2014 14:20,221.2,41723788
+BLOOD,Red Cells Additive soln LD,A POS,"CMV Neg., Irradiated, Filtered",D+ E- K-,Transfused,31/08/2014 14:00,123.24,41723788
+BLOOD,Red Cells Additive soln LD,A POS,"CMV Neg., HbS Neg., Irradiated, Filtered",D+ c- E- K-,Transfused,02/09/2014 13:25,123.24,41723788
+BLOOD,Red Cells Additive soln LD,A POS,"CMV Neg., Irradiated, Filtered",D+ E- K-,Transfused,02/09/2014 16:00,123.24,41723788
+PLT,"PLTS, aph, EL, Pk 2",A POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,29/08/2014 16:00,221.2,41723788
+BLOOD,Red Cells Additive soln LD,A POS,"CMV Neg., Irradiated, Filtered",D+ E- K-,Transfused,08/09/2014 16:30,123.24,41723788
+BLOOD,Red Cells Additive soln LD,A NEG,"CMV Neg., HbS Neg., Irradiated, Filtered",D- C- E- K-,Transfused,08/09/2014 14:30,123.24,41723788
+PLT,"PLTS, aph, EL, Pk 1",A POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,04/09/2014 23:00,221.2,41723788
+BLOOD,Red Cells Additive soln LD,A POS,"CMV Neg., HbS Neg., Irradiated, Filtered",D+ c- E- K-,Transfused,05/10/2014 14:00,123.24,41723788
+BLOOD,Red Cells Additive soln LD,A POS,"CMV Neg., Irradiated, Filtered",D+ E- K-,Transfused,05/10/2014 16:10,123.24,41723788
+PLT,"PLTS, aph, EL, Pk 1",A POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,09/10/2014 16:10,221.2,41723788
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered, Neg HT",D- C- E- Cw- S- K- Fya- Jka-,Transfused,26/11/2014 04:00,123.24,41601442
+BLOOD,Red Cells Additive soln LD,O POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+ E- K-,Transfused,25/11/2014 10:00,123.24,41601442
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., Filtered, Neg HT",D- E- K-,Transfused,26/11/2014 06:30,123.24,41601442
+BLOOD,"Red Cells, Washed (Automated)",O POS,"CMV Neg., Filtered, Neg HT",D+ c- E- K-,Transfused,25/11/2014 07:30,239.6,41601442
+PLT,"PLTS, aph, EL, Pk 2",B POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,26/11/2014 19:00,213.32,41601442
+PLT,"PLTS, aph, EL, Pk 2",A POS,"Irradiated, Filtered, Neg HT",D+,Transfused,25/11/2014 17:25,213.32,41601442
+PLT,"PLTS, aph, EL, Pk 3",A POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,26/11/2014 03:10,213.32,41601442
+PLT,"PLTS, aph, EL, Pk 3",AB NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,27/11/2014 16:40,213.32,41601442
+CRYO,"Cryoprecipitate Pooled, MB TREATED, LD",B POS,"Filtered, MB Treated",D+,Transfused,26/11/2014 00:40,1080.48,41601442
+CRYO,"Cryoprecipitate Pooled, MB TREATED, LD",B POS,"Filtered, MB Treated",D+,Transfused,25/11/2014 22:35,1080.48,41601442
+CRYO,"Cryoprecipitate Pooled, MB TREATED, LD",B POS,"Filtered, MB Treated",D+,Transfused,15/12/2014 12:30,1080.48,41601442
+CRYO,"Cryoprecipitate Pooled, MB TREATED, LD",A POS,"Filtered, MB Treated",D+,Transfused,15/12/2014 11:15,1080.48,41601442
+PLT,"PLTS, aph, EL, Pk 2",B POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,30/11/2014 15:30,213.32,41601442
+BLOOD,Red Cells Additive soln LD,B NEG,"CMV Neg., HbS Neg., Irradiated, Filtered, Neg HT",D- C- E- K-,Transfused,09/12/2014 17:00,123.24,41601442
+PLT,"PLTS, aph, EL, Pk 2",B POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,02/12/2014 17:00,213.32,41601442
+BLOOD,Red Cells Additive soln LD,B POS,"CMV Neg., Filtered, Neg HT",D+ K-,Transfused,05/12/2014 22:00,123.24,41601442
+PLT,"PLTS, aph, EL, Pk 2",B POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,04/12/2014 17:20,213.32,41601442
+PLT,"PLTS, aph, EL, Pk 2",B POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,06/12/2014 20:30,213.32,41601442
+BLOOD,Red Cells Additive soln LD,B POS,"CMV Neg., Filtered, Neg HT",D+ K-,Transfused,24/12/2014 12:00,123.24,41601442
+PLT,"PLTS, aph, EL, Pk 1",B POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,09/12/2014 01:00,213.32,41601442
+BLOOD,Red Cells Additive soln LD,B POS,"CMV Neg., Filtered, Neg HT",D+ E- K-,Transfused,01/01/2015 18:00,123.24,41601442
+PLT,"PLTS, aph, EL, Pk 2",B POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,11/12/2014 11:15,213.32,41601442
+PLT,"PLTS, aph, EL, Pk 1",B POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,14/12/2014 11:30,213.32,41601442
+PLT,"PLTS, aph, EL, Pk 2",B POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,16/12/2014 17:30,213.32,41601442
+PLT,"PLTS, aph, EL, Pk 2",AB NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,20/12/2014 22:00,213.32,41601442
+PLT,"PLTS, aph, EL, Pk 2",B NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,21/12/2014 20:00,213.32,41601442
+PLT,"PLTS, aph, EL, Pk 1",B POS,"CMV Neg., Irradiated, Filtered, Neg HT",D+,Transfused,24/12/2014 11:25,213.32,41601442
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered, Neg HT",D- C- E- Cw- S- K- Lua- Kpa-,Transfused,28/04/2014 21:45,123.24,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered, Neg HT",D- C- E- K-,Transfused,29/04/2014 02:40,123.24,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., Filtered, Neg HT",D- E- K-,Transfused,30/04/2014 13:30,123.24,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered, Neg HT",D- C- E- K-,Transfused,10/05/2014 05:45,123.24,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered, Neg HT",D- C- c+ E- e+ K-,Transfused,29/04/2014 23:30,123.24,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered, Neg HT",D- C- c+ E- e+ Cw- K- Jkb- Lua- Kpa-,Transfused,10/05/2014 07:40,123.24,40681648
+PLT,"PLTS, aph, EL, Pk 1",O NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,26/04/2014 13:35,213.32,40681648
+PLT,"PLTS, aph, EL, Pk 2",A NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,28/04/2014 17:20,213.32,40681648
+PLT,"PLTS, aph, EL, Pk 1",A NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,29/04/2014 04:35,213.32,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered, Neg HT",D- C- E- Cw- K- Fya-,Transfused,14/05/2014 18:10,123.24,40681648
+PLT,"PLTS, aph, EL, Pk 2",A NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,29/04/2014 13:15,213.32,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered, Neg HT",D- C- E- Cw- M- S- K- Fya- Jkb-,Transfused,14/05/2014 16:00,123.24,40681648
+PLT,"PLTS, aph, EL, Pk 1",O NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,30/04/2014 09:35,213.32,40681648
+PLT,"PLTS, aph, EL, Pk 2",O NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,30/04/2014 09:30,213.32,40681648
+PLT,"PLTS, aph, EL, Pk 1",O NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,02/05/2014 14:10,213.32,40681648
+PLT,"PLTS, aph, EL, Pk 1",O NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,02/05/2014 15:30,213.32,40681648
+PLT,"PLTS, aph, EL, Pk 2",O NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,08/05/2014 10:45,213.32,40681648
+PLT,"PLTS, aph, EL, Pk 2",O NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,10/05/2014 15:30,213.32,40681648
+PLT,"PLTS, aph, EL, Pk 2",A NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,10/05/2014 16:30,213.32,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered, Neg HT",D- K-,Transfused,05/06/2014 22:25,123.24,40681648
+PLT,"PLTS, aph, EL, Pk 1",O NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,13/05/2014 13:20,213.32,40681648
+PLT,"PLTS, aph, EL, Pk 1",A NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,16/05/2014 14:45,213.32,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., Filtered, Neg HT",D- C- K-,Transfused,05/06/2014 18:15,123.24,40681648
+PLT,"PLTS, aph, EL, Pk 2",O NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,11/06/2014 17:55,213.32,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered",D- C- E- Cw- M- S- K- Jkb-,Transfused,13/06/2014 10:00,123.24,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered",D- C- E- Cw- K- Fya- Jkb-,Transfused,30/06/2014 15:45,123.24,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., Filtered",D- E- K-,Transfused,13/06/2014 13:00,123.24,40681648
+PLT,"PLTS, aph, EL, Pk 2",O NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,13/06/2014 15:30,213.32,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered",D- C- E- Cw- K-,Transfused,30/06/2014 18:40,123.24,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Irradiated, Filtered",D- C- E- Cw- S- K- Fyb-,Transfused,10/07/2014 15:10,123.24,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., Irradiated, Filtered",D- C- K-,Transfused,10/07/2014 00:05,123.24,40681648
+PLT,"PLTS, aph, EL, Pk 1",O NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfusion Assumed,05/07/2014 16:00,213.32,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered",D- C- E- Cw- S- K- Fya- Jkb-,Transfused,08/07/2014 00:50,123.24,40681648
+PLT,"PLTS, aph, EL, Pk 3",O NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,09/07/2014 16:20,213.32,40681648
+PLT,"PLTS, aph, EL, Pk 1",O NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,09/07/2014 14:35,213.32,40681648
+PLT,"PLTS, aph, EL, Pk 1",A NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,12/07/2014 17:05,221.2,40681648
+PLT,"PLTS, aph, EL, Pk 2",O NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,14/07/2014 13:25,221.2,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered, Neg HT",D- E- Cw- M- S- K-,Transfused,31/07/2014 15:05,123.24,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Irradiated, Filtered",D- C- E- K-,Transfused,31/07/2014 23:55,123.24,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., Irradiated, Filtered",D- C- E- K-,Transfused,05/08/2014 20:30,123.24,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered",D- C- E- Cw- M- K- Lua- Kpa-,Transfused,26/08/2014 09:20,123.24,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered",D- C- E- Cw- S- K- Lua- Kpa-,Transfused,26/08/2014 11:00,123.24,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., Irradiated, Filtered",D- C- E- K-,Transfused,05/08/2014 18:00,123.24,40681648
+PLT,"PLTS Pooled, Extended Life",O NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,05/08/2014 14:10,221.2,40681648
+PLT,"PLTS, pooled in AS, ext-life",O NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,05/08/2014 14:55,221.2,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., Filtered",D- C- E- Cw- M- S- K- Fyb-,Transfused,11/08/2014 23:40,123.24,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., Filtered",D- C- E- Cw- S- K- Jkb-,Transfused,11/08/2014 21:20,123.24,40681648
+PLT,"PLTS, aph, EL, Pk 1",A NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,10/08/2014 15:00,221.2,40681648
+PLT,"PLTS, aph, EL, Pk 2",O NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,11/08/2014 19:50,221.2,40681648
+PLT,"PLTS, aph, EL, Pk 2",O NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,13/08/2014 14:00,221.2,40681648
+PLT,"PLTS, aph, EL, Pk 2",O NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,16/08/2014 15:30,221.2,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered",D- C- E- K-,Transfused,07/10/2014 10:15,123.24,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., Filtered",D- C- E- K-,Transfused,09/10/2014 14:15,123.24,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., Filtered",D- C- E- K-,Transfused,05/10/2014 02:15,123.24,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered",D- C- E- K-,Transfused,05/10/2014 04:30,123.24,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Irradiated, Filtered",D- C- E- Cw- K- Fya- Lua- Kpa-,Transfused,05/10/2014 16:52,123.24,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered",D- C- E- Cw- S- K-,Transfused,03/10/2014 19:15,123.24,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered",D- C- E- K-,Transfused,07/10/2014 13:15,123.24,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered",D- C- E- Cw- S- K- Fya- Jkb-,Transfused,03/10/2014 15:25,123.24,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered",D- C- E- Cw- K- Fyb- Jka-,Transfused,03/10/2014 16:15,123.24,40681648
+PLT,"PLTS, aph, EL, Pk 1",O NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,03/10/2014 17:45,221.2,40681648
+PLT,"PLTS, aph, EL, Pk 2",O NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,06/10/2014 15:00,221.2,40681648
+PLT,"PLTS, aph, EL, Pk 1",O NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,07/10/2014 18:20,221.2,40681648
+PLT,"PLTS, aph, EL, Pk 1",A NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,07/10/2014 17:10,221.2,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., Filtered",D- E- K-,Transfused,09/10/2014 17:00,123.24,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered",D- C- E- Cw- M- S- K- Fyb- Jkb-,Transfused,17/10/2014 21:30,123.24,40681648
+PLT,"PLTS, aph, EL, Pk 1",O NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,08/10/2014 19:00,221.2,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered",D- E- K-,Transfused,17/10/2014 18:10,123.24,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered",D- C- E- K-,Transfused,16/10/2014 12:50,123.24,40681648
+PLT,"PLTS, aph, EL, Pk 2",O NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,10/10/2014 11:30,221.2,40681648
+PLT,"PLTS, aph, EL, Pk 1",O NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,11/10/2014 14:00,221.2,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered",D- C- Cw- S- K-,Transfused,10/11/2014 10:45,123.24,40681648
+PLT,"PLTS, aph, EL, Pk 2",O NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,12/10/2014 16:00,221.2,40681648
+PLT,"PLTS, aph, EL, Pk 1",O NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,16/10/2014 11:10,221.2,40681648
+PLT,"PLTS, aph, EL, Pk 2",O NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,16/10/2014 11:10,221.2,40681648
+PLT,"PLTS, aph, EL, Pk 2",O NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,17/10/2014 17:20,221.2,40681648
+PLT,"PLTS, aph, EL, Pk 1",A NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,20/10/2014 06:55,221.2,40681648
+PLT,"PLTS, aph, EL, Pk 1",A NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,21/10/2014 18:25,221.2,40681648
+PLT,"PLTS, aph, EL, Pk 2",A NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,23/10/2014 10:30,221.2,40681648
+PLT,"PLTS, aph, EL, Pk 1",O NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,25/10/2014 14:10,221.2,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered",D- C- E- K-,Transfused,21/11/2014 09:06,123.24,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered",D- C- E- Cw- K- Fyb- Jka-,Transfused,21/11/2014 12:00,123.24,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered",D- C- E- Cw- S- K- Fya-,Transfused,12/11/2014 14:15,123.24,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Irradiated, Filtered",D- C- E- Cw- S- K- Fya- Lua- Kpa-,Transfused,21/11/2014 14:00,123.24,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered",D- C- c+ E- e+ K-,Transfused,02/12/2014 15:10,123.24,40681648
+PLT,"PLTS, aph, EL, Pk 1",O NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,19/11/2014 12:00,221.2,40681648
+PLT,"PLTS, aph, EL, Pk 1",A NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,21/11/2014 10:00,221.2,40681648
+PLT,"PLTS, aph, EL, Pk 2",A NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,26/11/2014 13:55,221.2,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered",D- C- E- Cw- K- Jka- Kpa-,Transfused,02/12/2014 16:45,123.24,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered",D- C- E- K-,Transfused,13/01/2015 19:10,123.24,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered",D- C- E- K-,Transfused,13/01/2015 13:00,123.24,40681648
+BLOOD,Red Cells Additive soln LD,O NEG,"CMV Neg., HbS Neg., Filtered",D- C- E- Cw- K- Lua- Kpa-,Transfused,08/01/2015 14:40,123.24,40681648
+PLT,"PLTS, aph, EL, Pk 2",A NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,08/01/2015 10:25,221.2,40681648
+PLT,"PLTS, aph, EL, Pk 1",O NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,13/01/2015 11:15,221.2,40681648
+PLT,"PLTS, aph, EL, Pk 2",O NEG,"CMV Neg., Irradiated, Filtered, Neg HT",D-,Transfused,17/01/2015 13:05,221.2,40681648
