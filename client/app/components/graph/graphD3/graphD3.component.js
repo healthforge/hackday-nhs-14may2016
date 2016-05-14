@@ -2,48 +2,32 @@ import template from './graphD3.html';
 import './graphD3.styl';
 import d3 from 'd3';
 
-let graphD3Component = function($compile) {
+let graphD3Component = function($compile, LabResultsService) {
 	return {
 		scope: {
-			val: '=',
-			grouped: '=',
-			data: '='
 		},
 		restrict: 'E',
 		template,
 		link: function(scope, element, attrs) {
 			var el = element[0].childNodes[0];
-			var draw = function() {
-
-				if(!scope.data.plt) {
-					return;
-				}
-				var margin = {top: 10, right: 10, bottom: 100, left: 40},
-					margin2 = {top: 430, right: 10, bottom: 20, left: 40},
+			LabResultsService.getSeries(attrs.data).then(function(seriesData) {
+				var margin = {top: 10, right: 10, bottom: 40, left: 40},
 					width = 960 - margin.left - margin.right,
-					height = 500 - margin.top - margin.bottom,
-					height2 = 500 - margin2.top - margin2.bottom;
+					height = 300 - margin.top - margin.bottom;
 
 				var x = d3.time.scale().range([0, width]),
-					x2 = d3.time.scale().range([0, width]),
-					y = d3.scale.linear().range([height, 0]),
-					y2 = d3.scale.linear().range([height2, 0]);
+					y = d3.scale.linear().range([height, 0]);
 
 				var xAxis = d3.svg.axis().scale(x).orient("bottom"),
-					xAxis2 = d3.svg.axis().scale(x2).orient("bottom"),
 					yAxis = d3.svg.axis().scale(y).orient("left");
 
 				var pltLine = d3.svg.line()
 					.x(function(d) { return x(d.parsed); })
 					.y(function(d) { return y(d.value); });
 
-				var brush = d3.svg.brush()
-					.x(x2)
-					.on("brush", brushed);
-
 				var svg = d3.select(el)
-				    .attr("width", width + margin.left + margin.right)
-				    .attr("height", height + margin.top + margin.bottom);
+					.attr("width", width + margin.left + margin.right)
+					.attr("height", height + margin.top + margin.bottom);
 
 				svg.selectAll("g").remove();
 
@@ -57,24 +41,18 @@ let graphD3Component = function($compile) {
 					.attr("class", "focus")
 					.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-				var context = svg.append("g")
-					.attr("class", "context")
-					.attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
-
 				var parseDate = d3.time.format("%Y-%m-%dT%H:%M").parse;
-				scope.data.plt.forEach(function(d) {
+				seriesData.forEach(function(d) {
 					d.parsed = parseDate(d.date);
 					d.value = +d.value;
 				});
 
 				// Scale the range of the data
-				x.domain(d3.extent(scope.data.plt, function(d) { return d.parsed; }));
-				y.domain(d3.extent(scope.data.plt, function(d) { return d.value; }));
-				x2.domain(x.domain());
-				y2.domain(y.domain());
+				x.domain(d3.extent(seriesData, function(d) { return d.parsed; }));
+				y.domain(d3.extent(seriesData, function(d) { return d.value; }));
 
 				focus.append("path")
-					.datum(scope.data.plt)
+					.datum(seriesData)
 					.attr("class", "line")
 					.attr("d", pltLine);
 
@@ -88,28 +66,6 @@ let graphD3Component = function($compile) {
 				focus.append("g")
 					.attr("class", "y axis")
 					.call(yAxis);
-
-				var area = d3.svg.area()
-					.interpolate("monotone")
-					.x(function(d) { return x2(d.parsed); })
-					.y0(height2)
-					.y1(function(d) { return y2(d.value); });
-				context.append("path")
-					.datum(scope.data.plt)
-					.attr("class", "area")
-					.attr("d", area);
-
-				context.append("g")
-					.attr("class", "x axis")
-					.attr("transform", "translate(0," + height2 + ")")
-					.call(xAxis2);
-
-				context.append("g")
-					.attr("class", "x brush")
-					.call(brush)
-					.selectAll("rect")
-					.attr("y", -6)
-					.attr("height", height2 + 7);
 
 				var hover = focus.append("g")
 					.attr("class", "focus")
@@ -126,33 +82,49 @@ let graphD3Component = function($compile) {
 					.attr("class", "overlay")
 					.attr("width", width)
 					.attr("height", height)
-					.on("mouseover", function() { hover.style("display", null); })
-					.on("mouseout", function() { hover.style("display", "none"); })
+					.on("mouseover", function() {
+						hover.style("display", null);
+						d3.selectAll(".mouse-line").style("opacity", "1")
+					})
+					.on("mouseout", function() {
+						hover.style("display", "none");
+						d3.selectAll(".mouse-line").style("opacity", "0")
+					})
 					.on("mousemove", mousemove);
 
+				var mouseG = focus.append("g");
+
+				var mouseline = mouseG.append("path")
+					.attr("class", "mouse-line")
+					.style("stroke", "black")
+					.style("stroke-width", "1px")
+					.style("opacity", "0");
+
 				var bisectDate = d3.bisector(function(d) { return d.parsed; }).left;
+
 				function mousemove() {
-					var x0 = x.invert(d3.mouse(this)[0]),
-						i = bisectDate(scope.data.plt, x0, 1),
-						d0 = scope.data.plt[i - 1],
-						d1 = scope.data.plt[i],
+					var mouse = d3.mouse(this);
+					var x0 = x.invert(mouse[0]),
+						i = bisectDate(seriesData, x0, 1),
+						d0 = seriesData[i - 1],
+						d1 = seriesData[i],
 						d = x0 - d0.parsed > d1.parsed - x0 ? d1 : d0;
 					hover.attr("transform", "translate(" + x(d.parsed) + "," + y(d.value) + ")");
 					hover.select("text").text(d.value);
+					d3.selectAll(".mouse-line")
+							.attr("d", function() {
+							var d = "M" + mouse[0] + "," + height;
+							d += " " + mouse[0] + "," + 0;
+							return d;
+						});
+
 				}
 
-				function brushed() {
-					x.domain(brush.empty() ? x2.domain() : brush.extent());
-					focus.select(".line").attr("d", pltLine(scope.data.plt));
-					focus.select(".x.axis").call(xAxis);
-				}
-
-			};
-			scope.$watch('data', draw, true);
+			});
 		}
 	};
 };
 
-graphD3Component.$inject = ['$compile'];
+graphD3Component.$inject = ['$compile', 'LabResultsService'];
 
 export default graphD3Component;
