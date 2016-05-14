@@ -20,7 +20,7 @@ angular.module('app', [
     })
     .run(() => {
         // Authenticate (if necessary)
-        SmartOnFhir.instance().run();
+        //SmartOnFhir.instance().run();
     })
     .service('LabResultsService', LabResultsService)
 
