@@ -16,10 +16,10 @@ https://www.hl7.org/fhir/resourcelist.html
 
 Resources of interest are:
 
-https://www.hl7.org/fhir/observation.html
-https://www.hl7.org/fhir/diagnosticreport.html
-https://www.hl7.org/fhir/medicationadministration.html
-https://www.hl7.org/fhir/patient.html
+- https://www.hl7.org/fhir/observation.html
+- https://www.hl7.org/fhir/diagnosticreport.html
+- https://www.hl7.org/fhir/medicationadministration.html
+- https://www.hl7.org/fhir/patient.html
 
 ## SMART-on-FHIR
 
