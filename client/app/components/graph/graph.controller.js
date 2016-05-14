@@ -9,14 +9,11 @@ class GraphController {
   
   loadData() {
     this.data = { plt: [] };
-    var promise = this.LabResultsService.getPlt();
+    var plt = this.LabResultsService.getSeries('PLT');
     var vm = this;
-    promise.then(function(res) {
-      vm.$timeout(function() {
-        vm.data.plt = res;
-      });
+    plt.then(function(res) {
+      vm.data.plt = res;
     });
-    this.data.ne = this.LabResultsService.getNe();
   }
 }
 
