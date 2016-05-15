@@ -1,4 +1,23 @@
 <div>
-  <h1>Tabular</h1>
-  <tabular-d3 data="vm.data"></tabular-d3>
+  <div>
+  	<sparkline data="PLT" w="200" h="30"></sparkline>
+  </div>
+  <div>
+	  <sparkline data="ALP" w="200" h="30"></sparkline>
+  </div>
+  <div>
+  	<sparkline data="ALT" w="200" h="30"></sparkline>
+  </div>
+
+  <table ng-table="vm.tableParams" class="table" show-filter="false">
+      <tr ng-repeat="user in vm.data['all']">
+          <td title="'Date'" filter="{ date: 'text'}" sortable="'date'">
+              {{user.date}}</td>
+          <td title="'Platelets'" filter="{ plt: 'number'}" sortable="'plt'">
+              {{user.plt}}</td>
+          <td title="'Creatinine'" filter="{ crea: 'number'}" sortable="'crea'">
+              {{user.crea}}</td>
+      </tr>
+  </table>
+  <!-- {{vm.data['all']}} -->
 </div>
