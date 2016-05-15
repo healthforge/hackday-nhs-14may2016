@@ -1,19 +1,22 @@
-import template from './graphD3.html';
-import './graphD3.styl';
+import template from './sparkline.html';
+import './sparkline.styl';
 import d3 from 'd3';
 
-let graphD3Component = function($compile, LabResultsService) {
+let sparklineComponent = function($compile, LabResultsService) {
 	return {
 		scope: {
+			val: '=',
+			grouped: '=',
+			data: '='
 		},
 		restrict: 'E',
 		template,
 		link: function(scope, element, attrs) {
 			var el = element[0].childNodes[0];
 			LabResultsService.getSeries(attrs.data).then(function(seriesData) {
-				var margin = {top: 10, right: 10, bottom: 40, left: 40},
-					width = 960 - margin.left - margin.right,
-					height = 300 - margin.top - margin.bottom;
+				var margin = {top: 2, right: 2, bottom: 4, left: 4},
+					width = attrs.w - margin.left - margin.right,
+					height = attrs.h - margin.top - margin.bottom;
 
 				var x = d3.time.scale().range([0, width]),
 					y = d3.scale.linear().range([height, 0]);
@@ -56,16 +59,16 @@ let graphD3Component = function($compile, LabResultsService) {
 					.attr("class", "line")
 					.attr("d", pltLine);
 
-				// Add the X Axis
-				focus.append("g")
-					.attr("class", "x axis")
-					.attr("transform", "translate(0," + height + ")")
-					.call(xAxis);
+				// // Add the X Axis
+				// focus.append("g")
+				// 	.attr("class", "x axis")
+				// 	.attr("transform", "translate(0," + height + ")")
+				// 	.call(xAxis);
 
-				// Add the Y Axis
-				focus.append("g")
-					.attr("class", "y axis")
-					.call(yAxis);
+				// // Add the Y Axis
+				// focus.append("g")
+				// 	.attr("class", "y axis")
+				// 	.call(yAxis);
 
 				var hover = focus.append("g")
 					.attr("class", "focus")
@@ -125,6 +128,6 @@ let graphD3Component = function($compile, LabResultsService) {
 	};
 };
 
-graphD3Component.$inject = ['$compile', 'LabResultsService'];
+sparklineComponent.$inject = ['$compile', 'LabResultsService'];
 
-export default graphD3Component;
+export default sparklineComponent;
