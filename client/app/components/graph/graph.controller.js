@@ -1,11 +1,34 @@
 class GraphController {
-  constructor(LabResultsService, $scope, $timeout) {
+  constructor() {
     this.name = 'graph';
-    this.LabResultsService = LabResultsService;
-    this.$scope = $scope;
+    this.graphs = [
+      {
+        code: 'PLT'
+      },
+      {
+        code: 'ALT'
+      }
+    ];
+    this.codes = [
+      { code: 'ALB' },
+      { code: 'ALT' },
+      { code: 'PHOS' },
+      { code: 'PLT' },
+      { code: 'CA' },
+    ];
+    this.selected = null;
+  }
+
+  addGraph(code) {
+    this.graphs.push({
+      code: code
+    });
+  }
+
+  removeGraph(item) {
+    var index = this.graphs.map(function(x) { return x.code; }).indexOf(item);
+    this.graphs.splice(index, 1);
   }
 }
-
-GraphController.$inject = ['LabResultsService', '$scope', '$timeout'];
 
 export default GraphController;

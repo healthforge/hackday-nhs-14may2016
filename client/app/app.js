@@ -6,9 +6,11 @@ import AppComponent from './app.component';
 import 'normalize.css';
 import SmartOnFhir from './components/smartOnFhir/smartOnFhir';
 import LabResultsService from './services/labResults/labResults';
+import 'angular-ui-bootstrap';
 
 angular.module('app', [
         uiRouter,
+        'ui.bootstrap',
         Common.name,
         Components.name
     ])

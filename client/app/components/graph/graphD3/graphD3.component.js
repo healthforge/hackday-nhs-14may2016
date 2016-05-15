@@ -11,17 +11,17 @@ let graphD3Component = function($compile, LabResultsService) {
 		link: function(scope, element, attrs) {
 			var el = element[0].childNodes[0];
 			LabResultsService.getSeries(attrs.data).then(function(seriesData) {
-				var margin = {top: 10, right: 10, bottom: 40, left: 40},
+				var margin = {top: 10, right: 10, bottom: 20, left: 40},
 					width = 960 - margin.left - margin.right,
-					height = 300 - margin.top - margin.bottom;
+					height = 200 - margin.top - margin.bottom;
 
 				var x = d3.time.scale().range([0, width]),
 					y = d3.scale.linear().range([height, 0]);
 
-				var xAxis = d3.svg.axis().scale(x).orient("bottom"),
+				var xAxis = d3.svg.axis().scale(x).orient("bottom").ticks(0),
 					yAxis = d3.svg.axis().scale(y).orient("left");
 
-				var pltLine = d3.svg.line()
+				var seriesLine = d3.svg.line()
 					.x(function(d) { return x(d.parsed); })
 					.y(function(d) { return y(d.value); });
 
@@ -54,13 +54,16 @@ let graphD3Component = function($compile, LabResultsService) {
 				focus.append("path")
 					.datum(seriesData)
 					.attr("class", "line")
-					.attr("d", pltLine);
+					.attr("d", seriesLine);
 
 				// Add the X Axis
-				focus.append("g")
-					.attr("class", "x axis")
-					.attr("transform", "translate(0," + height + ")")
-					.call(xAxis);
+				focus.append("svg:line")
+					.attr("x1", 0)
+					.attr("x2", width)
+					.attr("y1", height)
+					.attr("y2", height)
+					.style("stroke", "rgb(189, 189, 189)");
+
 
 				// Add the Y Axis
 				focus.append("g")
@@ -94,7 +97,7 @@ let graphD3Component = function($compile, LabResultsService) {
 
 				var mouseG = focus.append("g");
 
-				var mouseline = mouseG.append("path")
+				mouseG.append("path")
 					.attr("class", "mouse-line")
 					.style("stroke", "black")
 					.style("stroke-width", "1px")
@@ -112,7 +115,7 @@ let graphD3Component = function($compile, LabResultsService) {
 					hover.attr("transform", "translate(" + x(d.parsed) + "," + y(d.value) + ")");
 					hover.select("text").text(d.value);
 					d3.selectAll(".mouse-line")
-							.attr("d", function() {
+						.attr("d", function() {
 							var d = "M" + mouse[0] + "," + height;
 							d += " " + mouse[0] + "," + 0;
 							return d;
