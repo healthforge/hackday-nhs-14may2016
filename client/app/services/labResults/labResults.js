@@ -28,7 +28,7 @@ class LabResultsService {
             });
     }
 
-    getSeriesSparkline(type) {
+    getSeriesSparkline(type, startDate, endDate) {
         var vm = this;
         return this.$http.get(labResults)
             .then(function(res){
@@ -40,7 +40,9 @@ class LabResultsService {
                         line.patientId = record.patientId;
                         line.date = record.timestamp;
                         line.dateObj = new Date(record.timestamp);
-                        parsed.push(line);
+                        if((line.dateObj >= startDate) && (line.dateObj <= endDate)) {
+                            parsed.push(line);
+                        }
                     }
                 });
                 var sorted = vm.$filter('orderBy')(parsed, 'date');

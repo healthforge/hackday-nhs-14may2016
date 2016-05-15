@@ -58,7 +58,10 @@ class TabularController {
     //console.log(vm.keys);
 
     var startDate = new Date("2014-04-25");
-    var endDate = new Date("2014-05-01");
+    var endDate = new Date("2014-05-10");
+
+    this.$scope.startDate = startDate;
+    this.$scope.endDate = endDate;
 
     var promises = [];
     vm.keys.forEach(function(key) {

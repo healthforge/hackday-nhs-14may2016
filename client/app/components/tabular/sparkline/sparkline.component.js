@@ -13,7 +13,11 @@ let sparklineComponent = function($compile, LabResultsService) {
 		template,
 		link: function(scope, element, attrs) {
 			var el = element[0].childNodes[0];
-			LabResultsService.getSeriesSparkline(scope.data.key).then(function(seriesData) {
+
+		    var startDate = new Date("2014-04-25");
+		    var endDate = new Date("2014-05-25");
+
+			LabResultsService.getSeriesSparkline(scope.data.key, startDate, endDate).then(function(seriesData) {
 				var margin = {top: 2, right: 2, bottom: 4, left: 4},
 					width = attrs.w - margin.left - margin.right,
 					height = attrs.h - margin.top - margin.bottom;
