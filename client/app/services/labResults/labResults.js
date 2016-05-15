@@ -48,7 +48,7 @@ class LabResultsService {
             });
     }
 
-    getSeries(type, startDate, endDate) {
+    getSeries2(type, startDate, endDate) {
         var vm = this;
         return this.$http.get(labResults)
             .then(function(res){

@@ -62,7 +62,7 @@ class TabularController {
 
     var promises = [];
     vm.keys.forEach(function(key) {
-      var promise = vm.LabResultsService.getSeries(key.key, startDate, endDate);
+      var promise = vm.LabResultsService.getSeries2(key.key, startDate, endDate);
       promise.then(function(res) {
         vm.data[key.key] = res;
       });
