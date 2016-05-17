@@ -12,7 +12,7 @@ let graphWindowComponent = function($compile, LabResultsService) {
 			var el = element[0].childNodes[0];
 			LabResultsService.getSeries(attrs.data).then(function(seriesData) {
 				var margin = {top: 30, right: 10, bottom: 60, left: 40},
-					width = 1050 - margin.left - margin.right,
+					width = 950 - margin.left - margin.right,
 					height = 160 - margin.top - margin.bottom,
 					height2 = 170;
 

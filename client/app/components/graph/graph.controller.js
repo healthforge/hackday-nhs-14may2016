@@ -1,36 +1,22 @@
 class GraphController {
-  constructor($filter) {
+  constructor($filter, LabResultsService) {
     this.name = 'graph';
-    this.graphs = [
-      { 
-        code: 'ALB',
-        label: 'ALB',
+    var codes = LabResultsService.codes;
+    var active = ['PLT', 'CA'];
+    this.graphs = [];
+    var vm = this;
+    codes.forEach(function(code) {
+      var graph = {
+        code: code.code,
+        label: code.label,
         active: false
-      },
-      { 
-        code: 'ALT',
-        label: 'ALT',
-        active: false
-      },
-      { 
-        code: 'PHOS',
-        label: 'Phosphorus',
-        active: true
-      },
-      { 
-        code: 'PLT',
-        label: 'Platelets',
-        active: true
-      },
-      { 
-        code: 'CA',
-        label: 'Calcium',
-        active: false
+      };
+      if(active.indexOf(code.code) > -1) {
+        graph.active = true;
       }
-    ];
-
+      vm.graphs.push(graph);
+    });
     this.activeGraphs = $filter('filter')(this.graphs, { active: true });
-
   }
 
   addGraph(code) {
@@ -50,6 +36,6 @@ class GraphController {
   }
 }
 
-GraphController.$inject = ['$filter'];
+GraphController.$inject = ['$filter', 'LabResultsService'];
 
 export default GraphController;

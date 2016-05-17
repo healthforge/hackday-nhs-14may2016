@@ -14,23 +14,23 @@
 </div>
 
 <div class="row">
-    <div class="col-md-1">
+    <div class="col-md-2">
     </div>
-    <div class="col-md-11">
+    <div class="col-md-10">
         <graph-window data="ALT"></graph-window>
     </div>
 </div>
 
 <div ui-sortable ng-model="vm.activeGraphs">
     <div class="row graph-container" ng-repeat="graph in vm.activeGraphs">
-        <div class="graph-label col-md-1">
+        <div class="graph-label col-md-2">
             <h2>{{ graph.label }}</h2>
             <a href="#" ng-click="vm.removeGraph($index)">
                 <i class="fa fa-2x fa-times-circle" title="Remove" aria-hidden="true"></i>
                 <span class="sr-only">Remove</span>
             </a>
         </div>
-        <div class="col-md-11">
+        <div class="col-md-10">
             <graph-d3 data="{{ graph.code }}"></graph-d3>
         </div>
     </div>

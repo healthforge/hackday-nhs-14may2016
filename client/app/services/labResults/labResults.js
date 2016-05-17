@@ -1,11 +1,26 @@
 import labResults from 'file!./labResults.json';
+import labCodes from 'raw!./labresults-codes.csv';
 
 class LabResultsService {
     constructor($http, $filter) {
         this.patientId = '40681648';
         this.$http = $http;
         this.$filter = $filter;
+        this.codes = this.getCodes();
         var vm = this;
+    }
+
+    getCodes() {
+        var records = labCodes.split(/\r?\n/);
+        var codes = [];
+        records.forEach(function(line) {
+            var fields = line.split(/,/);
+            codes.push({
+                code: fields[0],
+                label: fields[2]
+            });
+        });
+        return codes;
     }
 
     getSeries(type) {

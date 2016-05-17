@@ -11,14 +11,14 @@ let graphD3Component = function($compile, LabResultsService) {
 		link: function(scope, element, attrs) {
 			var el = element[0].childNodes[0];
 			LabResultsService.getSeries(attrs.data).then(function(seriesData) {
-				var margin = {top: 10, right: 10, bottom: 20, left: 40},
-					width = 1050 - margin.left - margin.right,
+				var margin = {top: 10, right: 10, bottom: 10, left: 40},
+					width = 950 - margin.left - margin.right,
 					height = 200 - margin.top - margin.bottom;
 
 				var x = d3.time.scale().range([0, width]),
 					y = d3.scale.linear().range([height, 0]);
 
-				var yAxis = d3.svg.axis().scale(y).orient("left").ticks(4);
+				var yAxis = d3.svg.axis().scale(y).orient("left").ticks(5);
 
 				var seriesLine = d3.svg.line()
 					.x(function(d) { return x(d.parsed); })
