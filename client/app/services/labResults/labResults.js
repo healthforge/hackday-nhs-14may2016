@@ -1,5 +1,6 @@
 import labResults from 'file!./labResults.json';
 import labCodes from 'raw!./labresults-codes.csv';
+import 'lodash';
 
 class LabResultsService {
     constructor($http, $filter) {
@@ -8,6 +9,27 @@ class LabResultsService {
         this.$filter = $filter;
         this.codes = this.getCodes();
         var vm = this;
+    }
+
+    getPatients() {
+        return [
+            {
+                id: '40681648',
+                name: 'Alice'
+            },
+            {
+                id: '41915278',
+                name: 'Bob'
+            },
+            {
+                id: '41723788',
+                name: 'Christine'
+            },
+            {
+                id: '41601442',
+                name: 'David'
+            },
+        ];
     }
 
     getCodes() {
@@ -23,14 +45,15 @@ class LabResultsService {
         return codes;
     }
 
-    getSeries(type) {
+    getSeries(type, patientId) {
         var vm = this;
+        patientId = (typeof patientId === 'undefined') ? this.getPatients()[0].id : patientId;
         return this.$http.get(labResults)
             .then(function(res){
                 var parsed = [];
                 var line = {};
                 res.data.forEach(function(record) {
-                    if(type in record.lines && record.patientId == vm.patientId) {
+                    if(type in record.lines && record.patientId == patientId) {
                         line = record.lines[type];
                         line.patientId = record.patientId;
                         line.date = record.timestamp;

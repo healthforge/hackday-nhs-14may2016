@@ -1,8 +1,10 @@
 class GraphController {
-  constructor($filter, LabResultsService) {
+  constructor($scope, $filter, LabResultsService) {
     this.name = 'graph';
+    
+    // Initialise graphs
     var codes = LabResultsService.codes;
-    var active = ['PLT', 'CA'];
+    var active = ['PLT', 'CA', 'HBGL'];
     this.graphs = [];
     var vm = this;
     codes.forEach(function(code) {
@@ -17,8 +19,17 @@ class GraphController {
       vm.graphs.push(graph);
     });
     this.activeGraphs = $filter('filter')(this.graphs, { active: true });
+    
+    // Get patients
+    this.$scope = $scope;
+    this.patients = LabResultsService.getPatients();
+    $scope.patient = this.patients[0];
   }
 
+  selectPatient(patient) {
+    this.$scope.patient = patient;
+  }
+  
   addGraph(code) {
     var graph = _.find(this.graphs, { 'code': code });
     if(graph && !graph.active) {
@@ -36,6 +47,6 @@ class GraphController {
   }
 }
 
-GraphController.$inject = ['$filter', 'LabResultsService'];
+GraphController.$inject = ['$scope', '$filter', 'LabResultsService'];
 
 export default GraphController;
