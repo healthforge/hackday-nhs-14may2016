@@ -1,34 +1,55 @@
 class GraphController {
-  constructor() {
+  constructor($filter) {
     this.name = 'graph';
     this.graphs = [
-      {
-        code: 'PLT'
+      { 
+        code: 'ALB',
+        label: 'ALB',
+        active: false
       },
-      {
-        code: 'ALT'
+      { 
+        code: 'ALT',
+        label: 'ALT',
+        active: false
+      },
+      { 
+        code: 'PHOS',
+        label: 'Phosphorus',
+        active: true
+      },
+      { 
+        code: 'PLT',
+        label: 'Platelets',
+        active: true
+      },
+      { 
+        code: 'CA',
+        label: 'Calcium',
+        active: false
       }
     ];
-    this.codes = [
-      { code: 'ALB' },
-      { code: 'ALT' },
-      { code: 'PHOS' },
-      { code: 'PLT' },
-      { code: 'CA' },
-    ];
-    this.selected = null;
+
+    this.activeGraphs = $filter('filter')(this.graphs, { active: true });
+
   }
 
   addGraph(code) {
-    this.graphs.push({
-      code: code
-    });
+    var graph = _.find(this.graphs, { 'code': code });
+    if(graph && !graph.active) {
+      graph.active = true;
+      this.activeGraphs.push(graph);
+    }
   }
 
-  removeGraph(item) {
-    var index = this.graphs.map(function(x) { return x.code; }).indexOf(item);
-    this.graphs.splice(index, 1);
+  removeGraph(index) {
+    var removed = this.activeGraphs.splice(index, 1);
+    var graph = _.find(this.graphs, { 'code': removed[0].code });
+    if(graph && graph.active) {
+      graph.active = false;
+    }
   }
 }
+
+GraphController.$inject = ['$filter'];
 
 export default GraphController;

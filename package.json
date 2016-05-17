@@ -1,20 +1,17 @@
 {
-  "name": "ng6-starter",
+  "name": "blood-flow",
   "version": "0.0.1",
-  "description": "Starter for Angular + ES6 + (Webpack or JSPM)",
+  "description": "Blood results visualisation from NHS Hackday 13 (May 2016)",
   "main": "index.js",
   "dependencies": {
     "angular": "^1.5.0",
     "angular-ui-router": "^0.2.15",
-    "d3": "^3.5.16",
-    "fhirclient": "^0.1.5",
-    "jquery": "2.1.4",
-    "lodash": "^3.8.0",
     "normalize.css": "^3.0.3"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.0",
     "angular-ui-bootstrap": "^1.1.2",
+    "angular-ui-sortable": "^0.14.0",
     "babel-core": "^5.4.2",
     "babel-loader": "^5.0.0",
     "bootstrap-loader": "^1.0.5",
@@ -24,7 +21,10 @@
     "chai": "^3.4.0",
     "connect-history-api-fallback": "^1.1.0",
     "css-loader": "^0.19.0",
+    "d3": "^3.5.16",
+    "expose-loader": "^0.7.1",
     "express": "^4.13.4",
+    "fhirclient": "^0.1.5",
     "file-loader": "^0.8.5",
     "fs-walk": "0.0.1",
     "gulp": "^3.9.0",
@@ -35,6 +35,8 @@
     "html-webpack-plugin": "^1.7.0",
     "http-proxy": "^1.13.2",
     "imports-loader": "^0.6.5",
+    "jquery": "^2.2.3",
+    "jquery-ui": "^1.10.5",
     "karma": "^0.13.9",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^0.2.0",
@@ -42,6 +44,7 @@
     "karma-mocha-reporter": "^1.0.2",
     "karma-sourcemap-loader": "^0.3.4",
     "karma-webpack": "^1.5.1",
+    "lodash": "^3.10.1",
     "mocha": "^2.3.0",
     "ng-annotate-loader": "0.0.10",
     "ng-table": "^0.8.3",
@@ -70,8 +73,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/angularclass/NG6-starter.git"
+    "url": "https://github.com/HealthForge/hackday-nhs-14may2016"
   },
-  "author": "AngularClass",
+  "author": "Healthforge",
   "license": "Apache-2.0"
 }

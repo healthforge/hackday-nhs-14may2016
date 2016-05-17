@@ -1,4 +1,4 @@
-import jQuery from 'jquery';
+//import jQuery from 'jquery';
 
 let _instance = null;
 

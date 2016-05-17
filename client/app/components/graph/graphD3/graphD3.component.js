@@ -12,14 +12,13 @@ let graphD3Component = function($compile, LabResultsService) {
 			var el = element[0].childNodes[0];
 			LabResultsService.getSeries(attrs.data).then(function(seriesData) {
 				var margin = {top: 10, right: 10, bottom: 20, left: 40},
-					width = 960 - margin.left - margin.right,
+					width = 1050 - margin.left - margin.right,
 					height = 200 - margin.top - margin.bottom;
 
 				var x = d3.time.scale().range([0, width]),
 					y = d3.scale.linear().range([height, 0]);
 
-				var xAxis = d3.svg.axis().scale(x).orient("bottom").ticks(0),
-					yAxis = d3.svg.axis().scale(y).orient("left");
+				var yAxis = d3.svg.axis().scale(y).orient("left").ticks(4);
 
 				var seriesLine = d3.svg.line()
 					.x(function(d) { return x(d.parsed); })
@@ -58,11 +57,11 @@ let graphD3Component = function($compile, LabResultsService) {
 
 				// Add the X Axis
 				focus.append("svg:line")
+					.attr("class", ".line")
 					.attr("x1", 0)
 					.attr("x2", width)
 					.attr("y1", height)
-					.attr("y2", height)
-					.style("stroke", "rgb(189, 189, 189)");
+					.attr("y2", height);
 
 
 				// Add the Y Axis

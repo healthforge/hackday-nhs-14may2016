@@ -4,16 +4,12 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   devtool: 'sourcemap',
-  /*entry: {
-    main: ['./client/app/app.js'],
-    bootstrap: ['bootstrap-loader'],
-    fhirclient : ['fhirclient']
-  },*/
+  entry: {},
   module: {
     loaders: [
-        { test: /angular.js$/, loader: "imports?$=jquery" },
-        { test:/bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/, loader: 'imports?jQuery=jquery' },
-
+        { test: /jquery\.js$/, loader: "expose?jQuery" }, // Expose jQuery globally, otherwise angular won't see it
+        { test: /angular\.js$/, loader: "imports?jquery" }, // Force jQuery to load before angular
+        //{ test:/bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/, loader: 'imports?jQuery=jquery' },
         { test: /\.js$/, exclude: [/app\/lib/, /node_modules/], loader: 'ng-annotate!babel' },
         { test: /\.html$/, loader: 'raw' },
         { test: /\.styl$/, loader: 'style!css!stylus' },
@@ -22,8 +18,6 @@ module.exports = {
         { test: /\.(woff|woff2)$/, loaders: ['url-loader?limit=100000']},
         { test: /\.(ttf|eot)$/, loaders: ['file-loader']},
         { test: /\.(wav|mp3)$/, loaders: ['file-loader']},
-        //{ test: /\.html$/, loaders: ['html-loader']},
-        //{ test: /\.(md|markdown)$/, loaders: ['html-loader', 'markdown-loader']},
         {
           test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
           loader: 'url?limit=10000&mimetype=application/font-woff'
@@ -64,5 +58,6 @@ module.exports = {
         return module.resource && module.resource.indexOf(path.resolve(__dirname, 'client')) === -1;
       }
     })
+
   ]
 };
