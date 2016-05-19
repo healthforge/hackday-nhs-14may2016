@@ -45,7 +45,7 @@ class LabResultsService {
         return codes;
     }
 
-    getSeries(type, patientId) {
+    getSeries(type, patientId, startDate, endDate) {
         var vm = this;
         patientId = (typeof patientId === 'undefined') ? this.getPatients()[0].id : patientId;
         return this.$http.get(labResults)
@@ -58,50 +58,9 @@ class LabResultsService {
                         line.patientId = record.patientId;
                         line.date = record.timestamp;
                         line.dateObj = new Date(record.timestamp);
-                        parsed.push(line);
-                    }
-                });
-                var sorted = vm.$filter('orderBy')(parsed, 'date');
-                return sorted;
-            });
-    }
-
-    getSeriesSparkline(type, startDate, endDate) {
-        var vm = this;
-        return this.$http.get(labResults)
-            .then(function(res){
-                var parsed = [];
-                var line = {};
-                res.data.forEach(function(record) {
-                    if(type in record.lines) {
-                        line = record.lines[type];
-                        line.patientId = record.patientId;
-                        line.date = record.timestamp;
-                        line.dateObj = new Date(record.timestamp);
-                        if((line.dateObj >= startDate) && (line.dateObj <= endDate)) {
-                            parsed.push(line);
-                        }
-                    }
-                });
-                var sorted = vm.$filter('orderBy')(parsed, 'date');
-                return sorted;
-            });
-    }
-
-    getSeries2(type, startDate, endDate) {
-        var vm = this;
-        return this.$http.get(labResults)
-            .then(function(res){
-                var parsed = [];
-                var line = {};
-                res.data.forEach(function(record) {
-                    if(type in record.lines && record.patientId == vm.patientId) {
-                        line = record.lines[type];
-                        line.patientId = record.patientId;
-                        line.date = record.timestamp;
-                        line.dateObj = new Date(record.timestamp);
                         line.dateIndex = line.dateObj.getTime();
-                        if((line.dateObj >= startDate) && (line.dateObj <= endDate)) {
+                        if((typeof startDate === 'undefined' || line.dateObj >= startDate)
+                            && (typeof endDate === 'undefined' || line.dateObj <= endDate)) {
                             parsed.push(line);
                         }
                     }
@@ -110,6 +69,7 @@ class LabResultsService {
                 return sorted;
             });
     }
+
 }
 
 LabResultsService.$inject = ['$http', '$filter'];

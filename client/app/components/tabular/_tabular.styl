@@ -1,12 +1,52 @@
-.tabular 
+tabular
+
+  .form-control
+    height: 33px;
+
+.no-wrap
+  white-space: nowrap;
+
+.tabular
+
+  overflow-x: scroll;
+  overflow-y: visible;
+
+  .table
+    width: auto;
+
+  .table > tbody > tr > td.data-point
+    border-width: 1px;
+    border-color: #ddd;
+    border-style: solid;
+    width: 25px;
 
   th.rotate
-    /* Something you can count on */
-    height: 7em;
+    height: 80px;
     white-space: nowrap;
 
-    > div 
-      transform: translate(-0.5em, 3em) rotate(-90deg);
-      -webkit-transform: translate(-0.5em, 3em) rotate(-90deg);
-      -moz-transform: translate(-0.5em, 3em) rotate(-90deg);
-      width: 3.1em;
+    div
+      transform: translate(20px, -3px) rotate(315deg);
+      width: 25px;
+
+    span
+      border-bottom: 1px solid #ddd;
+      padding: 10px 20px 10px 5px;
+
+  .grippy
+    content: '....';
+    width: 16px;
+    height: 35px;
+    display: inline-block;
+    overflow: hidden;
+    line-height: 5px;
+    margin: -3px 0;
+    cursor: move;
+    vertical-align: middle;
+    font-size: 12px;
+    font-family: sans-serif;
+    letter-spacing: 2px;
+    color: #cccccc;
+    text-shadow: 1px 0 1px black;
+
+  .grippy::after
+    content: '... ... ... ... ... ...';

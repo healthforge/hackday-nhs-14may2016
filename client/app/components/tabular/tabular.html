@@ -1,51 +1,83 @@
-<div class="tabular">
+<h1>{{ patient.name }}</h1>
+<p>
+    <form class="form-inline">
+        <div class="btn-group" uib-dropdown is-open="patient-dropdown.isopen">
+            <button id="patient-dropdown" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
+                Patient <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="patient-dropdown">
+                <li role="menuitem" ng-repeat="menuPatient in vm.patients"
+                    ng-class="{ 'active': menuPatient.id == patient.id }">
+                    <a href="#" ng-click="vm.selectPatient(menuPatient)">{{ menuPatient.name }}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="btn-group" uib-dropdown is-open="graph-dropdown.isopen">
+            <button id="graph-dropdown" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
+                <i class="fa fa-plus" aria-hidden="true"></i> Add <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="graph-dropdown">
+                <li role="menuitem" ng-repeat="graph in vm.graphs|filter:{ active: false }|orderBy:'label'">
+                    <a href="#" ng-click="vm.addGraph(graph.code)">{{ graph.label }}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="form-group">
+            <label class="sr-only" for="startDate">Start Date</label>
+            <div class="input-group">
+                <input type="text" class="form-control" uib-datepicker-popup="yyyy-MM-dd" ng-model="startDate"
+                       is-open="startDatePopup.opened" datepicker-options="dateOptions" id="startDate" />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="startDatePopup()">
+                        <i class="fa fa-calendar"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="sr-only" for="endDate">End Date</label>
+            <div class="input-group">
+                <input type="text" class="form-control" uib-datepicker-popup="yyyy-MM-dd" ng-model="endDate"
+                       is-open="endDatePopup.opened" datepicker-options="dateOptions" id="endDate" />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="endDatePopup()">
+                        <i class="fa fa-calendar"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
+    </form>
+</p>
 
-<!--    <table ng-table-dynamic="vm.tableParams with vm.colsList" class="table" show-filter="false">
-      <tr ng-repeat="item in vm.timeIndexedData">
-          <td title="'Date'" filter="{ date: 'text'}" sortable="'date'">
-              {{item.date}}</td>
-          <td title="vm.cols.name.title" ng-repeat="key in vm.keys">
-              {{item[vm.cols.name.field]}}</td>
-      </tr>
-  </table>
- --> 
-   <table class="table table-striped">
-    <tr>
-      <th class="rotate">
-        <div>
-          <span>
-            Indicator
-          </span>
-        </div>
-      </th>
-      <th class="rotate">
-        <div>
-          <span>
-            Trend
-          </span>
-        </div>
-      </th>
-      <th class="rotate" ng-repeat="item in vm.timeIndexedData">
-        <div>
-          <span>
-          {{item.date | date:'yyyy-MM-dd'}}
-          </span>
-        </div>
-      </th>
-    </tr>
-    <tr ng-repeat="key in vm.keys">
-      <td>
-          {{key.description}}
-      </td>
-      <td>
-        <div>
-          <sparkline data="key" w="200" h="50"></sparkline>
-        </div>
-      </td>
-      <td ng-repeat="item in vm.timeIndexedData">
-          {{item[key.key]}}</td>
-    </tr>
-  </table>
- 
-  <!-- {{vm.data['all']}} -->
+<div class="tabular">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th></th>
+            <th>Indicator</th>
+            <th>Trend</th>
+            <th class="rotate" ng-repeat="item in vm.dates">
+                <div><span>{{item.date | date:'yyyy-MM-dd'}}</span></div>
+            </th>
+        </tr>
+        </thead>
+        <tbody ui-sortable="sortableOptions" ng-model="vm.activeGraphs">
+            <tr ng-repeat="graph in vm.activeGraphs">
+                <td><span class="grippy"></span></td>
+                <td class="no-wrap">
+                    <a href="#" ng-click="vm.removeGraph($index)">
+                        <i class="fa fa-times-circle" title="Remove" aria-hidden="true"></i>
+                        <span class="sr-only">Remove</span>
+                    </a>
+                    {{graph.label}}
+                </td>
+                <td class="no-wrap">
+                    <sparkline code="{{graph.code}}" patient="patient" w="200" h="40" data="graph.series"></sparkline>
+                </td>
+                <td class="data-point" ng-repeat="cell in graph.cells">
+                    {{ cell.values[0].value || "-" }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>

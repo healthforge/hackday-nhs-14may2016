@@ -1,13 +1,14 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
-import angularTable from 'ng-table/dist/ng-table.min.js';
+import 'jquery-ui';
+import 'angular-ui-sortable';
+import 'ng-table';
 import tabularComponent from './tabular.component';
-import tabularD3 from './tabularD3/tabularD3';
 import sparkline from './sparkline/sparkline';
 
 let tabularModule = angular.module('tabular', [
     uiRouter,
-    tabularD3.name,
+    'ui.sortable',
     'ngTable',
     sparkline.name
 ])

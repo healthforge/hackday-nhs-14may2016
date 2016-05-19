@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 class GraphController {
   constructor($scope, $filter, LabResultsService) {
     this.name = 'graph';
