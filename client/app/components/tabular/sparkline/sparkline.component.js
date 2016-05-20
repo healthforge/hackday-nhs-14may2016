@@ -12,7 +12,7 @@ let sparklineComponent = function () {
         link: function (scope, element, attrs) {
             var el = element[0].childNodes[0];
             scope.$watch('data', function (seriesData) {
-                var margin = {top: 2, right: 2, bottom: 2, left: 2},
+                var margin = {top: 5, right: 5, bottom: 5, left: 5},
                     width = attrs.w - margin.left - margin.right,
                     height = attrs.h - margin.top - margin.bottom;
 
@@ -62,58 +62,71 @@ let sparklineComponent = function () {
                     .attr("class", "line")
                     .attr("d", pltLine);
 
+                var mouseG = focus.append("g");
+
+                mouseG.append("path")
+                    .attr("class", "mouse-line")
+                    .style("stroke", "#ddd")
+                    .style("stroke-width", "1px")
+                    .style("opacity", "0");
+
                 var hover = focus.append("g")
-                    .attr("class", "focus")
+                    .attr("class", "hover")
                     .style("display", "none");
 
                 hover.append("circle")
-                    .attr("r", 4.5);
-
-                hover.append("text")
-                    .attr("x", 9)
-                    .attr("dy", ".35em");
-
+                    .attr("r", 3);
+                
                 focus.append("rect")
                     .attr("class", "overlay")
                     .attr("width", width)
                     .attr("height", height)
                     .on("mouseover", function () {
-                        hover.style("display", null);
-                        d3.selectAll(".mouse-line").style("opacity", "1")
+                        d3.selectAll(".focus .hover").style("display", null);
+                        d3.selectAll(".hover-value").style("display", null);
+                        d3.selectAll(".mouse-line").style("opacity", "1");
                     })
                     .on("mouseout", function () {
-                        hover.style("display", "none");
-                        d3.selectAll(".mouse-line").style("opacity", "0")
+                        d3.selectAll(".focus .hover").style("display", "none");
+                        d3.selectAll(".hover-value").style("display", "none");
+                        d3.selectAll(".mouse-line").style("opacity", "0");
                     })
                     .on("mousemove", mousemove);
 
-                var mouseG = focus.append("g");
 
-                mouseG.append("path")
-                    .attr("class", "mouse-line")
-                    .style("stroke", "black")
-                    .style("stroke-width", "1px")
-                    .style("opacity", "0");
-
-                var bisectDate = d3.bisector(function (d) {
-                    return d.parsed;
-                }).left;
+                var bisectDate = d3.bisector(function (d) { return d.parsed; }).left;
 
                 function mousemove() {
                     var mouse = d3.mouse(this);
-                    var x0 = x.invert(mouse[0]),
-                        i = bisectDate(seriesData, x0, 1),
-                        d0 = seriesData[i - 1],
-                        d1 = seriesData[i],
-                        d = x0 - d0.parsed > d1.parsed - x0 ? d1 : d0;
-                    hover.attr("transform", "translate(" + x(d.parsed) + "," + y(d.value) + ")");
-                    hover.select("text").text(d.value);
-                    d3.selectAll(".mouse-line")
-                        .attr("d", function () {
-                            var d = "M" + mouse[0] + "," + height;
-                            d += " " + mouse[0] + "," + 0;
-                            return d;
-                        });
+                    var date = x.invert(mouse[0]);
+                    var lines = d3.selectAll(".line");
+                    lines.each(function(otherSeries, row) {
+                        // Update circle positions
+                        var i = bisectDate(otherSeries, date, 1),
+                            d0 = otherSeries[i - 1],
+                            d1 = otherSeries[i],
+                            d = date - d0.parsed > d1.parsed - date ? d1 : d0;
+                        x.domain(d3.extent(otherSeries, function (d) {
+                            return d.parsed;
+                        }));
+                        y.domain(d3.extent(otherSeries, function (d) {
+                            return d.value;
+                        }));
+                        d3.select(this.parentNode).select(".hover")
+                            .attr("transform", "translate(" + x(d.parsed) + "," + y(d.value) + ")");
+
+                        // Update hover values
+                        var hoverValue = d3.selectAll(".hover-value")[0][row];
+                        hoverValue.innerHTML = d.value + ' <span class="units">' + d.unit + "</span>";
+
+                        // Update index lines
+                        d3.select(this.parentNode).select(".mouse-line")
+                            .attr("d", function () {
+                                var d = "M" + mouse[0] + "," + height;
+                                d += " " + mouse[0] + "," + 0;
+                                return d;
+                            });
+                    });
                 }
             });
         }

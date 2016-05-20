@@ -1,6 +1,6 @@
 import template from './tabular.html';
 import controller from './tabular.controller';
-import './_tabular.styl';
+import './tabular.styl';
 
 let tabularComponent = {
   restrict: 'E',
