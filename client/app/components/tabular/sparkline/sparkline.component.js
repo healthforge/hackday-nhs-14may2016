@@ -2,7 +2,7 @@ import template from './sparkline.html';
 import './sparkline.styl';
 import d3 from 'd3';
 
-let sparklineComponent = function ($compile, LabResultsService) {
+let sparklineComponent = function () {
     return {
         restrict: 'E',
         scope: {
@@ -119,7 +119,5 @@ let sparklineComponent = function ($compile, LabResultsService) {
         }
     };
 };
-
-sparklineComponent.$inject = ['$compile', 'LabResultsService'];
 
 export default sparklineComponent;

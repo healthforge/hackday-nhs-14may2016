@@ -1,0 +1,82 @@
+[
+  {
+    "indicator": "ALB",
+    "code": "1751-7",
+    "label": "Albumin"
+  },
+  {
+    "indicator": "ALP",
+    "code": "6768-6",
+    "label": "Alkaline phosphatase"
+  },
+  {
+    "indicator": "ALT",
+    "code": "1742-6",
+    "label": "Alanine Aminotransferase"
+  },
+  {
+    "indicator": "BILI",
+    "code": "1975-2",
+    "label": "Bilirubin"
+  },
+  {
+    "indicator": "CA",
+    "code": "17861-6",
+    "label": "Calcium"
+  },
+  {
+    "indicator": "CREA",
+    "code": "2160-0",
+    "label": "Creatinine"
+  },
+  {
+    "indicator": "HBGL",
+    "code": "718-7",
+    "label": "Haemoglobin"
+  },
+  {
+    "indicator": "K",
+    "code": "2823-3",
+    "label": "Potassium"
+  },
+  {
+    "indicator": "LY",
+    "code": "731-0",
+    "label": "Lymphocyte"
+  },
+  {
+    "indicator": "MG",
+    "code": "19123-9",
+    "label": "Magnesium"
+  },
+  {
+    "indicator": "NA",
+    "code": "2951-2",
+    "label": "Sodium"
+  },
+  {
+    "indicator": "NE",
+    "code": "751-8",
+    "label": "Neutrophil"
+  },
+  {
+    "indicator": "PHOS",
+    "code": "2777-1",
+    "label": "Phosphorus"
+  },
+  {
+    "indicator": "PLT",
+    "code": "777-3",
+    "label": "Platelet"
+  },
+  {
+    "indicator": "UREA",
+    "code": "63481-6",
+    "label": "Urea Concentration"
+  },
+  {
+    "indicator": "WCC",
+    "code": "6690-2",
+    "label": "White Cell Count"
+  }
+]

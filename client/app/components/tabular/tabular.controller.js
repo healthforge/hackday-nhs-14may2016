@@ -1,24 +1,22 @@
 import _ from 'lodash';
 
 class TabularController {
-    constructor(LabResultsService, $scope, $timeout, NgTableParams, $q, $filter) {
+    constructor($scope, $q, LabResultsService) {
         this.name = 'tabular';
+
+        var vm = this;
         this.LabResultsService = LabResultsService;
         this.$scope = $scope;
-        this.$timeout = $timeout;
-        this.$q = $q;
-        this.$filter = $filter;
 
         // Defaults
-        var defaultGraphs = ['LY', 'CA', 'HBGL'];
+        var defaultCodes = ['LY', 'CA', 'HBGL'];
         var startDate = "2014-04-25";
         var endDate = "2014-05-10";
 
-        // ui-sortable options
+        // UI options
         $scope.sortableOptions = {
             handle: '.grippy'
         }
-
         $scope.startDatePopup = function() {
             $scope.startDatePopup.opened = true;
         };
@@ -26,35 +24,35 @@ class TabularController {
             $scope.endDatePopup.opened = true;
         };
 
-        // Initialise graphs
-        var codes = LabResultsService.codes;
+        // Get codes
         this.graphs = [];
-        var vm = this;
-        codes.forEach(function (code) {
-            var graph = {
-                code: code.code,
-                label: code.label,
-                active: false,
-                cells: [],
-                series: []
-            };
-            vm.graphs.push(graph);
+        this.activeGraphs = [];
+        var codesPromise = LabResultsService.codes.then(function (codes) {
+            codes.forEach(function (code) {
+                code.active = false;
+                code.cells = [];
+                code.series = [];
+                vm.graphs.push(code);
+            });
         });
 
         // Get patients
-        this.patients = LabResultsService.getPatients();
-        $scope.patient = this.patients[0];
+        var patientsPromise = LabResultsService.patients.then(function (patients) {
+            vm.patients = patients;
+            $scope.patient = patients[0];
+        });
 
         // Set dates
         $scope.startDate = new Date(startDate);
         $scope.endDate = new Date(endDate);
 
-        // Load initial graphs
-        this.activeGraphs = [];
+        // Populate default graphs
         this.dates = [];
-        defaultGraphs.forEach(function(code) {
-           vm.addGraph(code);
-        });
+        $q.all([codesPromise, patientsPromise]).then(function () {
+            defaultCodes.forEach(function (code) {
+                vm.addGraph(code);
+            });
+        })
 
         $scope.$watchGroup(["patient", "startDate", "endDate"], function() {
             vm.dates = [];
@@ -144,83 +142,8 @@ class TabularController {
         }
     }
 
-    loadData(NgTableParams) {
-
-        var vm = this;
-
-        this.data = [];
-
-        // Create table column list
-        this.colsList = [{
-            field: 'date',
-            title: 'Date',
-            show: true
-        }];
-
-        this.activeGraphs.forEach(function (graph) {
-            vm.colsList.push({
-                field: graph.code,
-                title: graph.label,
-                show: true
-            });
-        });
-        this.cols = _.indexBy(this.colsList, 'field');
-
-        var startDate = new Date(this.$scope.startDate);
-        var endDate = new Date(this.$scope.endDate);
-
-        this.$scope.startDate = startDate;
-        this.$scope.endDate = endDate;
-
-        var promises = [];
-        this.activeGraphs.forEach(function (graph) {
-            var promise = vm.LabResultsService.getSeries(graph.code, vm.$scope.patient.id, startDate, endDate);
-            promise.then(function (res) {
-                vm.data[graph.code] = res;
-            });
-            promises.push(promise);
-        });
-
-        var addToAllData = function (allData, series, key) {
-            series.forEach(function (item) {
-                var index = (item.dateIndex - startDate.getTime()) / 86400000;
-                if (!allData[index]) {
-                    allData[index] = {};
-                }
-                allData[index].date = item.date;
-                allData[index].dateObj = item.dateObj;
-                allData[index][key] = item.value;
-            });
-        };
-
-        this.$q.all(promises).then(function (data) {
-            vm.timeIndexedData = [];
-            for (var index in data) {
-                var key = vm.activeGraphs[index].code;
-
-                // add data to keys
-                addToAllData(vm.timeIndexedData, data[index], key);
-            }
-            vm.timeIndexedData.forEach(function (item) {
-                vm.activeGraphs.forEach(function (graph) {
-                    if (!item[graph.code]) {
-                        item[graph.code] = '-';
-                    }
-                });
-            });
-        });
-
-        vm.tableParams = new NgTableParams(
-            {},
-            {
-                total: 0,
-                data: vm.timeIndexedData
-            }
-        );
-
-    }
 }
 
-TabularController.$inject = ['LabResultsService', '$scope', '$timeout', 'NgTableParams', '$q', '$filter'];
+TabularController.$inject = ['$scope', '$q', 'LabResultsService'];
 
 export default TabularController;

@@ -1,54 +1,60 @@
 import _ from 'lodash';
 
 class GraphController {
-  constructor($scope, $filter, LabResultsService) {
-    this.name = 'graph';
-    
-    // Initialise graphs
-    var codes = LabResultsService.codes;
-    var active = ['PLT', 'CA', 'HBGL'];
-    this.graphs = [];
-    var vm = this;
-    codes.forEach(function(code) {
-      var graph = {
-        code: code.code,
-        label: code.label,
-        active: false
-      };
-      if(active.indexOf(code.code) > -1) {
-        graph.active = true;
-      }
-      vm.graphs.push(graph);
-    });
-    this.activeGraphs = $filter('filter')(this.graphs, { active: true });
-    
-    // Get patients
-    this.$scope = $scope;
-    this.patients = LabResultsService.getPatients();
-    $scope.patient = this.patients[0];
-  }
+    constructor($scope, $q, LabResultsService) {
+        this.name = 'graph';
 
-  selectPatient(patient) {
-    this.$scope.patient = patient;
-  }
-  
-  addGraph(code) {
-    var graph = _.find(this.graphs, { 'code': code });
-    if(graph && !graph.active) {
-      graph.active = true;
-      this.activeGraphs.push(graph);
-    }
-  }
+        var vm = this;
+        this.$scope = $scope;
 
-  removeGraph(index) {
-    var removed = this.activeGraphs.splice(index, 1);
-    var graph = _.find(this.graphs, { 'code': removed[0].code });
-    if(graph && graph.active) {
-      graph.active = false;
+        // Defaults
+        var defaultCodes = ['PLT', 'CA', 'HBGL'];
+        
+        // Get codes
+        this.graphs = [];
+        this.activeGraphs = [];
+        var codesPromise = LabResultsService.codes.then(function (codes) {
+            codes.forEach(function (code) {
+                code.active = false;
+                vm.graphs.push(code);
+            });
+        });
+
+        // Get patients
+        var patientsPromise = LabResultsService.patients.then(function (patients) {
+            vm.patients = patients;
+            $scope.patient = patients[0];
+        });
+
+        // Populate default graphs
+        $q.all([codesPromise, patientsPromise]).then(function () {
+            defaultCodes.forEach(function (code) {
+                vm.addGraph(code);
+            });
+        })
     }
-  }
+
+    selectPatient(patient) {
+        this.$scope.patient = patient;
+    }
+
+    addGraph(code) {
+        var graph = _.find(this.graphs, {'code': code});
+        if (graph && !graph.active) {
+            graph.active = true;
+            this.activeGraphs.push(graph);
+        }
+    }
+
+    removeGraph(index) {
+        var removed = this.activeGraphs.splice(index, 1);
+        var graph = _.find(this.graphs, {'code': removed[0].code});
+        if (graph && graph.active) {
+            graph.active = false;
+        }
+    }
 }
 
-GraphController.$inject = ['$scope', '$filter', 'LabResultsService'];
+GraphController.$inject = ['$scope', '$q', 'LabResultsService'];
 
 export default GraphController;

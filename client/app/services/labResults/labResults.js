@@ -1,54 +1,41 @@
-import labResults from 'file!./labResults.json';
-import labCodes from 'raw!./labresults-codes.csv';
+import observations from 'file!./observations.json';
+import indicators from 'file!./indicators.json';
+import patients from 'file!./patients.json';
 import 'lodash';
 
 class LabResultsService {
     constructor($http, $filter) {
-        this.patientId = '40681648';
         this.$http = $http;
         this.$filter = $filter;
         this.codes = this.getCodes();
-        var vm = this;
+        this.patients = this.getPatients();
     }
 
     getPatients() {
-        return [
-            {
-                id: '40681648',
-                name: 'Alice'
-            },
-            {
-                id: '41915278',
-                name: 'Bob'
-            },
-            {
-                id: '41723788',
-                name: 'Christine'
-            },
-            {
-                id: '41601442',
-                name: 'David'
-            },
-        ];
+        return this.$http.get(patients)
+            .then(function(res){
+                return res.data;
+            });
     }
 
     getCodes() {
-        var records = labCodes.split(/\r?\n/);
-        var codes = [];
-        records.forEach(function(line) {
-            var fields = line.split(/,/);
-            codes.push({
-                code: fields[0],
-                label: fields[2]
+        return this.$http.get(indicators)
+            .then(function(res){
+                var parsed = [];
+                var line = {};
+                res.data.forEach(function(record) {
+                    parsed.push({
+                        "code": record.indicator,
+                        "label":record.label
+                    });
+                });
+                return parsed;
             });
-        });
-        return codes;
     }
 
     getSeries(type, patientId, startDate, endDate) {
         var vm = this;
-        patientId = (typeof patientId === 'undefined') ? this.getPatients()[0].id : patientId;
-        return this.$http.get(labResults)
+        return this.$http.get(observations)
             .then(function(res){
                 var parsed = [];
                 var line = {};
