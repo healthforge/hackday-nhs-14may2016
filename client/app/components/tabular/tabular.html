@@ -80,10 +80,16 @@
                 <td class="no-wrap">
                     <sparkline code="{{graph.code}}" patient="patient" w="200" h="40" data="graph.series"></sparkline>
                 </td>
-                <td class="data-point" ng-repeat="cell in graph.cells">
-                    {{ cell.values[0].value || "-" }}
+                <td class="data-point" ng-repeat="cell in graph.cells" data-date="{{ cell.dateIndex }}">
+                    <span uib-tooltip-template="'allValues.html'">{{ cell.values[0].value || "-" }}</span>
                 </td>
             </tr>
         </tbody>
     </table>
 </div>
+
+<script type="text/ng-template" id="allValues.html">
+    <span>
+        <span ng-repeat="value in cell.values">{{ value.value }}<span ng-if="!$last">, </span></span>
+    </span>
+</script>

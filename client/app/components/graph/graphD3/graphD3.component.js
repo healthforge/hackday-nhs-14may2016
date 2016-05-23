@@ -12,9 +12,6 @@ let graphD3Component = function (LabResultsService) {
         template,
         link: function (scope, element, attrs) {
             var el = element[0].childNodes[0];
-            scope.$watch('brush', function(brush) {
-                console.log(brush);
-            });
             scope.$watch('patient', function (patient) {
                 if (typeof(patient) !== 'undefined') {
                     LabResultsService.getSeries(attrs.code, patient.id).then(function (seriesData) {

@@ -75,7 +75,7 @@ let sparklineComponent = function () {
                     .style("display", "none");
 
                 hover.append("circle")
-                    .attr("r", 3);
+                    .attr("r", 2);
                 
                 focus.append("rect")
                     .attr("class", "overlay")
@@ -90,6 +90,7 @@ let sparklineComponent = function () {
                         d3.selectAll(".focus .hover").style("display", "none");
                         d3.selectAll(".hover-data").style("display", "none");
                         d3.selectAll(".mouse-line").style("opacity", "0");
+                        d3.selectAll(".data-point").classed("current", false);
                     })
                     .on("mousemove", mousemove);
 
@@ -119,6 +120,10 @@ let sparklineComponent = function () {
                         var hoverData = d3.selectAll(".hover-data")[0][row];
                         d3.select(hoverData).select(".hover-value").text(d.value);
                         d3.select(hoverData).select(".hover-unit").text(d.unit);
+
+                        // Update table hover
+                        d3.selectAll(".data-point").classed("current", false);
+                        d3.selectAll("[data-date='"+d.dateIndex+"']").classed("current", true);
 
                         // Update index lines
                         d3.select(this.parentNode).select(".mouse-line")
