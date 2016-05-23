@@ -92,6 +92,7 @@ let graphD3Component = function (LabResultsService) {
 
                         // Add mouse guide
                         focus.append("g")
+                            .append("path")
                             .attr("class", "mouse-line")
                             .style("stroke", "#ddd")
                             .style("stroke-width", "1px")
