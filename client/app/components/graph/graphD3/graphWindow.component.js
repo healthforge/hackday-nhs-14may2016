@@ -99,8 +99,13 @@ let graphWindowComponent = function (LabResultsService) {
                             .attr("height", height + 7);
 
                         function brushed() {
-                            x2.domain(brush.empty() ? x.domain() : brush.extent());
-                            scope.setExtent({ extent: brush.extent() });
+                            if(brush.empty()) {
+                                x2.domain(x.domain());
+                                scope.setExtent({ extent: [] });
+                            } else {
+                                x2.domain(brush.extent());
+                                scope.setExtent({ extent: brush.extent() });
+                            }
                             d3.selectAll(".line").each(function (datum) {
                                 y2.domain(d3.extent(datum, function (d) {
                                     return d.value;
