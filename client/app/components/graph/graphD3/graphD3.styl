@@ -2,13 +2,8 @@ graph-d3, graph-window
 	svg
 		display: block;
 
-	path
-		stroke: steelblue;
-		stroke-width: 2;
-		fill: none;
-
 	.axis
-		path, line, .line
+		path, line
 			fill: none;
 			stroke: grey;
 			stroke-width: 1;
@@ -22,6 +17,14 @@ graph-d3, graph-window
 
 	.area
 		fill: steelblue;
+		stroke: steelblue;
+
+	.line
+		stroke: grey;
+		stroke-width: 1;
+		fill: none;
+
+	.line, .dot
 		clip-path: url(#clip);
 
 	.overlay
@@ -30,5 +33,10 @@ graph-d3, graph-window
 
 	.hover
 		circle
-			fill: steelblue;
-			stroke: steelblue;
+			fill: red;
+			stroke: red;
+
+	.dot
+		stroke: steelblue;
+		fill: steelblue;
+

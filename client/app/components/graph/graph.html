@@ -35,7 +35,15 @@
                 <i class="fa fa-2x fa-times-circle" title="Remove" aria-hidden="true"></i>
                 <span class="sr-only">Remove</span>
             </a>
-            <div class="hover-value"></div>
+            <div class="hover-data">
+                <div>
+                    <span class="hover-value"></span>
+                    <span class="hover-unit"></span>
+                </div>
+                <div>
+                    <span class="hover-date"></span>
+                </div>
+            </div>
         </div>
         <div class="col-md-10">
             <graph-d3 code="{{ graph.code }}" patient="patient"></graph-d3>

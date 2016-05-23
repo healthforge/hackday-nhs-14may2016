@@ -35,11 +35,12 @@ let graphD3Component = function (LabResultsService) {
                             .attr("width", width + margin.left + margin.right)
                             .attr("height", height + margin.top + margin.bottom);
 
+                        // Remove any existing content
                         svg.selectAll("g").remove();
 
-                        svg.append("defs").append("clipPath")
+                        var clip = svg.append("defs").append("svg:clipPath")
                             .attr("id", "clip")
-                            .append("rect")
+                            .append("svg:rect")
                             .attr("width", width)
                             .attr("height", height);
 
@@ -47,9 +48,9 @@ let graphD3Component = function (LabResultsService) {
                             .attr("class", "focus")
                             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-                        var parseDate = d3.time.format("%Y-%m-%dT%H:%M").parse;
+                        var parseDateTime = d3.time.format("%Y-%m-%dT%H:%M").parse;
                         seriesData.forEach(function (d) {
-                            d.parsed = parseDate(d.date);
+                            d.parsed = parseDateTime(d.date);
                             d.value = +d.value;
                         });
 
@@ -61,6 +62,16 @@ let graphD3Component = function (LabResultsService) {
                             return d.value;
                         }));
 
+                        // Add plot points
+                        focus.selectAll("dot")
+                            .data(seriesData)
+                            .enter().append("circle")
+                            .attr("class", "dot")
+                            .attr("r", 2)
+                            .attr("cx", function(d) { return x(d.parsed); })
+                            .attr("cy", function(d) { return y(d.value); });
+
+                        // Add plot line
                         focus.append("path")
                             .datum(seriesData)
                             .attr("class", "line")
@@ -74,26 +85,24 @@ let graphD3Component = function (LabResultsService) {
                             .attr("y1", height)
                             .attr("y2", height);
 
-
                         // Add the Y Axis
                         focus.append("g")
                             .attr("class", "y axis")
                             .call(yAxis);
 
-                        var mouseG = focus.append("g");
-
-                        mouseG.append("path")
+                        // Add mouse guide
+                        focus.append("g")
                             .attr("class", "mouse-line")
                             .style("stroke", "#ddd")
                             .style("stroke-width", "1px")
                             .style("opacity", "0");
 
-                        var hover = focus.append("g")
+                        // Add hover point highlight
+                        focus.append("g")
                             .attr("class", "hover")
-                            .style("display", "none");
-
-                        hover.append("circle")
-                            .attr("r", 4.5);
+                            .style("display", "none")
+                            .append("circle")
+                            .attr("r", 3);
 
                         focus.append("rect")
                             .attr("class", "overlay")
@@ -101,12 +110,12 @@ let graphD3Component = function (LabResultsService) {
                             .attr("height", height)
                             .on("mouseover", function () {
                                 d3.selectAll(".focus .hover").style("display", null);
-                                d3.selectAll(".hover-value").style("display", null);
+                                d3.selectAll(".hover-data").style("display", null);
                                 d3.selectAll(".mouse-line").style("opacity", "1");
                             })
                             .on("mouseout", function () {
                                 d3.selectAll(".focus .hover").style("display", "none");
-                                d3.selectAll(".hover-value").style("display", "none");
+                                d3.selectAll(".hover-data").style("display", "none");
                                 d3.selectAll(".mouse-line").style("opacity", "0");
                             })
                             .on("mousemove", mousemove);
@@ -119,26 +128,30 @@ let graphD3Component = function (LabResultsService) {
                             var mouse = d3.mouse(this);
                             var date = x.invert(mouse[0]);
                             var lines = d3.selectAll(".line");
-                            lines.each(function(otherSeries, row) {
-                                // Update circle positions
-                                var i = bisectDate(otherSeries, date, 1),
-                                    d0 = otherSeries[i - 1],
-                                    d1 = otherSeries[i],
+                            lines.each(function(ds, row) {
+
+                                // Update hover points
+                                var i = bisectDate(ds, date, 1),
+                                    d0 = ds[i - 1],
+                                    d1 = ds[i],
                                     d = date - d0.parsed > d1.parsed - date ? d1 : d0;
-                                x.domain(d3.extent(otherSeries, function (d) {
+                                x.domain(d3.extent(ds, function (d) {
                                     return d.parsed;
                                 }));
-                                y.domain(d3.extent(otherSeries, function (d) {
+                                y.domain(d3.extent(ds, function (d) {
                                     return d.value;
                                 }));
                                 d3.select(this.parentNode).select(".hover")
                                     .attr("transform", "translate(" + x(d.parsed) + "," + y(d.value) + ")");
 
                                 // Update hover values
-                                var hoverValue = d3.selectAll(".hover-value")[0][row];
-                                hoverValue.innerHTML = d.value + ' <span class="units">' + d.unit + "</span>";
+                                var hoverData = d3.selectAll(".hover-data")[0][row];
+                                d3.select(hoverData).select(".hover-value").text(d.value);
+                                d3.select(hoverData).select(".hover-unit").text(d.unit);
+                                var formatDate = d3.time.format("%Y-%m-%d");
+                                d3.select(hoverData).select(".hover-date").text(formatDate(d.parsed));
 
-                                // Update index lines
+                                // Update mouse guides
                                 d3.select(this.parentNode).select(".mouse-line")
                                     .attr("d", function () {
                                         var d = "M" + mouse[0] + "," + height;

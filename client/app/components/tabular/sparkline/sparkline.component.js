@@ -83,12 +83,12 @@ let sparklineComponent = function () {
                     .attr("height", height)
                     .on("mouseover", function () {
                         d3.selectAll(".focus .hover").style("display", null);
-                        d3.selectAll(".hover-value").style("display", null);
+                        d3.selectAll(".hover-data").style("display", null);
                         d3.selectAll(".mouse-line").style("opacity", "1");
                     })
                     .on("mouseout", function () {
                         d3.selectAll(".focus .hover").style("display", "none");
-                        d3.selectAll(".hover-value").style("display", "none");
+                        d3.selectAll(".hover-data").style("display", "none");
                         d3.selectAll(".mouse-line").style("opacity", "0");
                     })
                     .on("mousemove", mousemove);
@@ -116,8 +116,9 @@ let sparklineComponent = function () {
                             .attr("transform", "translate(" + x(d.parsed) + "," + y(d.value) + ")");
 
                         // Update hover values
-                        var hoverValue = d3.selectAll(".hover-value")[0][row];
-                        hoverValue.innerHTML = d.value + ' <span class="units">' + d.unit + "</span>";
+                        var hoverData = d3.selectAll(".hover-data")[0][row];
+                        d3.select(hoverData).select(".hover-value").text(d.value);
+                        d3.select(hoverData).select(".hover-unit").text(d.unit);
 
                         // Update index lines
                         d3.select(this.parentNode).select(".mouse-line")

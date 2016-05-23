@@ -70,7 +70,12 @@
                         <span class="sr-only">Remove</span>
                     </a>
                     {{graph.label}}
-                    <div class="hover-value"></div>
+                    <div class="hover-data">
+                        <div>
+                            <span class="hover-value"></span>
+                            <span class="hover-unit"></span>
+                        </div>
+                    </div>
                 </td>
                 <td class="no-wrap">
                     <sparkline code="{{graph.code}}" patient="patient" w="200" h="40" data="graph.series"></sparkline>

@@ -17,7 +17,7 @@ let graphWindowComponent = function (LabResultsService) {
                         var margin = {top: 30, right: 10, bottom: 60, left: 40},
                             width = 950 - margin.left - margin.right,
                             height = 160 - margin.top - margin.bottom,
-                            height2 = 170;
+                            height2 = 180;
 
                         var x = d3.time.scale().range([0, width]),
                             x2 = d3.time.scale().range([0, width]),
@@ -103,7 +103,11 @@ let graphWindowComponent = function (LabResultsService) {
                                 y2.domain(d3.extent(datum, function (d) {
                                     return d.value;
                                 }));
-                                d3.select(this).attr("d", seriesLine(datum))
+                                d3.select(this).attr("d", seriesLine(datum));
+                                d3.select(this.parentNode).selectAll(".dot")
+                                    .data(datum)
+                                    .attr("cx", function(d) { return x2(d.parsed); })
+                                    .attr("cy", function(d) { return y2(d.value); });
                             });
                             svg.select(".x2").call(x2Axis);
                         }
