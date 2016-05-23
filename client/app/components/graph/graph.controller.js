@@ -9,6 +9,11 @@ class GraphController {
 
         // Defaults
         var defaultCodes = ['PLT', 'CA', 'HBGL'];
+
+        $scope.brush = {
+            fromDate: null,
+            toDate: null
+        };
         
         // Get codes
         this.graphs = [];
@@ -34,6 +39,11 @@ class GraphController {
         })
     }
 
+    setExtent(extent) {
+        this.$scope.brush.fromDate = extent[0];
+        this.$scope.brush.toDate = extent[1];
+    }
+    
     selectPatient(patient) {
         this.$scope.patient = patient;
     }

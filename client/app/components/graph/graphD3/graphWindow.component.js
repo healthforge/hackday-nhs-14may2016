@@ -6,7 +6,8 @@ let graphWindowComponent = function (LabResultsService) {
     return {
         restrict: 'E',
         scope: {
-            patient: '=patient'
+            patient: '=patient',
+            setExtent: '&'
         },
         template,
         link: function (scope, element, attrs) {
@@ -99,6 +100,7 @@ let graphWindowComponent = function (LabResultsService) {
 
                         function brushed() {
                             x2.domain(brush.empty() ? x.domain() : brush.extent());
+                            scope.setExtent({ extent: brush.extent() });
                             d3.selectAll(".line").each(function (datum) {
                                 y2.domain(d3.extent(datum, function (d) {
                                     return d.value;

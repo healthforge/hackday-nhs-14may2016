@@ -6,11 +6,15 @@ let graphD3Component = function (LabResultsService) {
     return {
         restrict: 'E',
         scope: {
-            patient: '=patient'
+            patient: '=patient',
+            brush: '=brush',
         },
         template,
         link: function (scope, element, attrs) {
             var el = element[0].childNodes[0];
+            scope.$watch('brush', function(brush) {
+                console.log(brush);
+            });
             scope.$watch('patient', function (patient) {
                 if (typeof(patient) !== 'undefined') {
                     LabResultsService.getSeries(attrs.code, patient.id).then(function (seriesData) {
@@ -136,9 +140,16 @@ let graphD3Component = function (LabResultsService) {
                                     d0 = ds[i - 1],
                                     d1 = ds[i],
                                     d = date - d0.parsed > d1.parsed - date ? d1 : d0;
-                                x.domain(d3.extent(ds, function (d) {
-                                    return d.parsed;
-                                }));
+                                if(scope.brush.fromDate && scope.brush.toDate) {
+                                    x.domain([
+                                        scope.brush.fromDate,
+                                        scope.brush.toDate
+                                    ]);
+                                } else {
+                                    x.domain(d3.extent(ds, function (d) {
+                                        return d.parsed;
+                                    }));
+                                }
                                 y.domain(d3.extent(ds, function (d) {
                                     return d.value;
                                 }));
