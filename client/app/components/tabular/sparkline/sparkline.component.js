@@ -31,6 +31,7 @@ let sparklineComponent = function () {
                     .attr("width", width + margin.left + margin.right)
                     .attr("height", height + margin.top + margin.bottom);
 
+                // Remove any existing content
                 svg.selectAll("g").remove();
 
                 svg.append("defs").append("clipPath")
@@ -57,6 +58,7 @@ let sparklineComponent = function () {
                     return d.value;
                 }));
 
+                // Add mouse guide
                 focus.append("g")
                     .append("path")
                     .attr("class", "mouse-line")
@@ -64,18 +66,19 @@ let sparklineComponent = function () {
                     .style("stroke-width", "1px")
                     .style("opacity", "0");
 
+                // Add plot line
                 focus.append("path")
                     .datum(seriesData)
                     .attr("class", "line")
                     .attr("d", pltLine);
 
-                var hover = focus.append("g")
+                // Add hover point highlight
+                focus.append("g")
                     .attr("class", "hover")
-                    .style("display", "none");
-
-                hover.append("circle")
+                    .style("display", "none")
+                    .append("circle")
                     .attr("r", 2);
-                
+
                 focus.append("rect")
                     .attr("class", "overlay")
                     .attr("width", width)
@@ -94,13 +97,15 @@ let sparklineComponent = function () {
                     .on("mousemove", mousemove);
 
 
-                var bisectDate = d3.bisector(function (d) { return d.parsed; }).left;
+                var bisectDate = d3.bisector(function (d) {
+                    return d.parsed;
+                }).left;
 
                 function mousemove() {
                     var mouse = d3.mouse(this);
                     var date = x.invert(mouse[0]);
                     var lines = d3.selectAll(".line");
-                    lines.each(function(otherSeries, row) {
+                    lines.each(function (otherSeries, row) {
                         // Update circle positions
                         var i = bisectDate(otherSeries, date, 1),
                             d0 = otherSeries[i - 1],
@@ -122,7 +127,7 @@ let sparklineComponent = function () {
 
                         // Update table hover
                         d3.selectAll(".data-point, .date-heading").classed("current", false);
-                        d3.selectAll("[data-date='"+d.dateIndex+"']").classed("current", true);
+                        d3.selectAll("[data-date='" + d.dateIndex + "']").classed("current", true);
 
                         // Update index lines
                         d3.select(this.parentNode).select(".mouse-line")

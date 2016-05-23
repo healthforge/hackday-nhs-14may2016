@@ -63,6 +63,14 @@ let graphD3Component = function (LabResultsService) {
                             return d.value;
                         }));
 
+                        // Add mouse guide
+                        focus.append("g")
+                            .append("path")
+                            .attr("class", "mouse-line")
+                            .style("stroke", "#ddd")
+                            .style("stroke-width", "1px")
+                            .style("opacity", "0");
+
                         // Add plot points
                         focus.selectAll("dot")
                             .data(seriesData)
@@ -90,14 +98,6 @@ let graphD3Component = function (LabResultsService) {
                         focus.append("g")
                             .attr("class", "y axis")
                             .call(yAxis);
-
-                        // Add mouse guide
-                        focus.append("g")
-                            .append("path")
-                            .attr("class", "mouse-line")
-                            .style("stroke", "#ddd")
-                            .style("stroke-width", "1px")
-                            .style("opacity", "0");
 
                         // Add hover point highlight
                         focus.append("g")
