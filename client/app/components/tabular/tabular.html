@@ -56,7 +56,7 @@
             <th></th>
             <th>Indicator</th>
             <th>Trend</th>
-            <th class="rotate" ng-repeat="item in vm.dates">
+            <th class="rotate date-heading" ng-repeat="item in vm.dates"  data-date="{{ item.dateIndex }}">
                 <div><span>{{item.date | date:'yyyy-MM-dd'}}</span></div>
             </th>
         </tr>

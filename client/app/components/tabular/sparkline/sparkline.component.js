@@ -57,18 +57,17 @@ let sparklineComponent = function () {
                     return d.value;
                 }));
 
-                focus.append("path")
-                    .datum(seriesData)
-                    .attr("class", "line")
-                    .attr("d", pltLine);
-
-                var mouseG = focus.append("g");
-
-                mouseG.append("path")
+                focus.append("g")
+                    .append("path")
                     .attr("class", "mouse-line")
                     .style("stroke", "#ddd")
                     .style("stroke-width", "1px")
                     .style("opacity", "0");
+
+                focus.append("path")
+                    .datum(seriesData)
+                    .attr("class", "line")
+                    .attr("d", pltLine);
 
                 var hover = focus.append("g")
                     .attr("class", "hover")
@@ -90,7 +89,7 @@ let sparklineComponent = function () {
                         d3.selectAll(".focus .hover").style("display", "none");
                         d3.selectAll(".hover-data").style("display", "none");
                         d3.selectAll(".mouse-line").style("opacity", "0");
-                        d3.selectAll(".data-point").classed("current", false);
+                        d3.selectAll(".data-point, .date-heading").classed("current", false);
                     })
                     .on("mousemove", mousemove);
 
@@ -122,7 +121,7 @@ let sparklineComponent = function () {
                         d3.select(hoverData).select(".hover-unit").text(d.unit);
 
                         // Update table hover
-                        d3.selectAll(".data-point").classed("current", false);
+                        d3.selectAll(".data-point, .date-heading").classed("current", false);
                         d3.selectAll("[data-date='"+d.dateIndex+"']").classed("current", true);
 
                         // Update index lines
