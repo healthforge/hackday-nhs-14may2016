@@ -1,4 +1,4 @@
-<h1>{{ patient.name }}</h1>
+<h1><strong>{{ patient.name[0].family[0] }}</strong>, {{ patient.name[0].given[0] }}</h1>
 <p>
     <form class="form-inline">
         <div class="btn-group" uib-dropdown is-open="patient-dropdown.isopen">
@@ -8,7 +8,8 @@
             <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="patient-dropdown">
                 <li role="menuitem" ng-repeat="menuPatient in vm.patients"
                     ng-class="{ 'active': menuPatient.id == patient.id }">
-                    <a href="#" ng-click="vm.selectPatient(menuPatient)">{{ menuPatient.name }}</a>
+                    <a href="#" ng-click="vm.selectPatient(menuPatient.resource)"><strong>{{ menuPatient.resource.name[0].family[0] }}</strong>,
+                        {{ menuPatient.resource.name[0].given[0] }}</a>
                 </li>
             </ul>
         </div>

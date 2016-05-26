@@ -37,9 +37,9 @@ class TabularController {
         });
 
         // Get patients
-        var patientsPromise = LabResultsService.patients.then(function (patients) {
-            vm.patients = patients;
-            $scope.patient = patients[0];
+        var patientsPromise = LabResultsService.getPatients().then(function (bundle) {
+            vm.patients = bundle.entry;
+            $scope.patient = vm.patients[0].resource;
         });
 
         // Set dates
@@ -57,7 +57,7 @@ class TabularController {
         $scope.$watchGroup(["patient", "startDate", "endDate"], function() {
             vm.dates = [];
             vm.activeGraphs.forEach(function(graph) {
-                vm.processGraph(graph, vm.$scope.patient.id, vm.$scope.startDate, vm.$scope.endDate);
+                vm.processGraph(graph, vm.$scope.patient, vm.$scope.startDate, vm.$scope.endDate);
             });
         });
 
@@ -67,14 +67,14 @@ class TabularController {
         var graph = _.find(this.graphs, {'code': code});
         if (graph && !graph.active) {
             graph.active = true;
-            this.processGraph(graph, this.$scope.patient.id, this.$scope.startDate, this.$scope.endDate);
+            this.processGraph(graph, this.$scope.patient, this.$scope.startDate, this.$scope.endDate);
             this.activeGraphs.push(graph);
         }
     }
 
-    processGraph(graph, patientId, startDate, endDate) {
+    processGraph(graph, patient, startDate, endDate) {
         var vm = this;
-        this.LabResultsService.getSeries(graph.code, patientId, startDate, endDate)
+        this.LabResultsService.getSeries(graph.code, patient, startDate, endDate)
             .then(function (seriesData) {
                 graph.series = seriesData;
                 vm.addGraphToDates(graph, vm.dates);

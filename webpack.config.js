@@ -63,7 +63,12 @@ module.exports = {
             'process.env': {
                 'NODE_ENV': JSON.stringify(process.env.NODE_ENV),
                 'CLIENT_ID': JSON.stringify(process.env.CLIENT_ID),
-                'SECRET': JSON.stringify(process.env.SECRET)
+                'SECRET': JSON.stringify(process.env.SECRET),
+                'FHIR_URI': JSON.stringify(process.env.FHIR_URI),
+                'OAUTH2_URI': JSON.stringify(process.env.OAUTH2_URI),
+                'AUTH_URI': JSON.stringify(process.env.AUTH_URI),
+                'PROXY': JSON.stringify(process.env.PROXY),
+                'OFFLINE': JSON.stringify(process.env.OFFLINE)
             }
         })
 

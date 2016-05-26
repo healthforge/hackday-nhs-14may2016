@@ -1,156 +1,152 @@
-//import jQuery from 'jquery';
-
 let _instance = null;
 
 class smartOnFhir {
 
-	constructor() {
+    constructor() {
+    }
 
-	}
+    static instance() {
+        if (_instance == null) {
+            _instance = new smartOnFhir();
+        }
+        return _instance;
+    }
 
-	static instance() {
-		if(_instance == null) {
-			_instance = new smartOnFhir();
-		}
-		return _instance;
-	}
+    run() {
+        //this.clearAuthToken();
+        console.log("Initialising smart on fhir");
+        var baseURL = window.location.protocol + "//" + window.location.host;
+        var settings = {
+            client_id: process.env.CLIENT_ID,
+            scope: "*",
+            secret: process.env.SECRET,
+            fhir_uri: process.env.FHIR_URI,
+            oauth2_url: process.env.OAUTH2_URI
+        };
+        if (process.env.PROXY === 'true') {
+            settings.fhir_uri = baseURL + '/fhir';
+            settings.oauth2_uri = baseURL + '/oauth2';
+        }
+        this.initialize(settings);
 
-	run() {
+        if (!this.hasAuthToken()) {
+            console.log("OAuth2 token is not set.");
+            if (this.urlParam("code")) {
+                this.completeAuth();
+            } else {
+                console.log("Authorizing...");
+                this.authorize();
+            }
+        } else {
+            console.log("OAuth2 token is set.");
+        }
+    }
 
-		//this.clearAuthToken();
-		var settings = this.getSettings();
+    urlParam(p) {
+        var query = location.search.substr(1);
+        var data = query.split("&");
+        var result = [];
 
-		console.log("Initialising smart on fhir");
-		this.initialize({
-			client_id: process.env.CLIENT_ID,
-			scope: "*",
-			secret: process.env.SECRET
-		});
+        for (var i = 0; i < data.length; i++) {
+            var item = data[i].split("=");
+            if (item[0] === p) {
+                var res = item[1].replace(/\+/g, '%20');
+                result.push(decodeURIComponent(res));
+            }
+        }
 
-		if (!this.hasAuthToken()) {
-			console.log("OAuth2 token is not set.");
-			if (this.urlParam("code")) {
-				this.completeAuth();
-			} else {
-				console.log("Authorizing...");
-				this.authorize();
-			}
-		} else {
-			console.log("OAuth2 token is set.");
-		}
-	}
+        if (result.length === 0) {
+            return null;
+        }
+        return result[0];
+    }
 
-	urlParam(p) {
-	  var query = location.search.substr(1);
-	  var data = query.split("&");
-	  var result = [];
+    getRedirectURI() {
+        return (window.location.protocol + "//" + window.location.host + window.location.pathname).match(/(.*\/)[^\/]*/)[1];
+    }
 
-	  for(var i=0; i<data.length; i++) {
-	    var item = data[i].split("=");
-	    if (item[0] === p) {
-	      var res = item[1].replace(/\+/g, '%20');
-	      result.push(decodeURIComponent(res));
-	    }
-	  }
+    refreshApp() {
+        window.location.href = this.getRedirectURI();
+    }
 
-	  if (result.length === 0){
-	    return null;
-	  }
-	  return result[0];
-	}
+    initialize(settings) {
+        this.setSettings({
+            client_id: settings.client_id,
+            secret: settings.secret,
+            scope: settings.scope + " launch",
+            launch_id: this.urlParam("launch"),
+            fhir_uri: settings.fhir_uri,
+            oauth2_url: settings.oauth2_uri
+        });
+    }
 
-	getRedirectURI () {
-	    return (window.location.protocol + "//" + window.location.host + window.location.pathname).match(/(.*\/)[^\/]*/)[1];
-	}
+    completeAuth() {
+        var smartOnFhir = this;
+        FHIR.oauth2.ready(function () {
+        });
+    }
 
-	refreshApp () {
-	    window.location.href = this.getRedirectURI();
-	}
+    writeData(key, data) {
+        sessionStorage[key] = JSON.stringify(data);
+    }
 
-	initialize (settings) {
+    readData(key) {
+        var data = sessionStorage[key];
+        if (data) {
+            return JSON.parse(sessionStorage[key]);
+        } else {
+            return data;
+        }
+    }
 
-		var baseURL = window.location.protocol + "//" + window.location.host;
+    clearData(key) {
+        delete sessionStorage[key];
+    }
 
-	    this.setSettings({
-	        client_id: settings.client_id,
-	        secret: settings.secret,
-	        scope: settings.scope + " launch",
-	        launch_id: this.urlParam("launch"),
-	        api_server_uri: baseURL + "/fhir"
-	    });
-	}
+    hasAuthToken() {
+        return sessionStorage.tokenResponse !== undefined;
+    }
 
-	completeAuth () {
-		var smartOnFhir = this;
-	    FHIR.oauth2.ready(function(){
-	       
-	    });
-	}
+    clearAuthToken() {
+        delete sessionStorage.tokenResponse;
+    }
 
-	writeData (key, data) {
-	    sessionStorage[key] = JSON.stringify(data);
-	}
+    getSettings() {
+        return this.readData("app-settings");
+    }
 
-	readData (key) {
-	    var data = sessionStorage[key];
-	    if (data) {
-	        return JSON.parse(sessionStorage[key]);
-	    } else {
-	        return data;
-	    }
-	}
+    setSettings(data) {
+        this.writeData("app-settings", data);
+    }
 
-	clearData (key) {
-	    delete sessionStorage[key];
-	}
+    getSession(key) {
+        return this.readData(key);
+    }
 
-	hasAuthToken () {
-	    return sessionStorage.tokenResponse !== undefined;
-	}
+    setSession(data) {
+        var key = Math.round(Math.random() * 100000000).toString();
+        this.writeData(key, data);
+        return key;
+    }
 
-	clearAuthToken () {
-	    delete sessionStorage.tokenResponse;
-	}
-
-	getSettings () {
-	    return this.readData("app-settings");
-	}
-
-	setSettings (data) {
-	    this.writeData ("app-settings", data);
-	}
-
-	getSession (key) {
-	    return this.readData(key);
-	}
-
-	setSession (data) {
-	    var key = Math.round(Math.random()*100000000).toString();
-	    this.writeData (key, data);
-	    return key;
-	}
-
-	authorize () {
-	    var settings = this.getSettings();
-
-	    var baseURL = window.location.protocol + "//" + window.location.host;
-	    
-	    FHIR.oauth2.authorize({
-	        client: {
-	            client_id: settings.client_id,
-	            scope:  settings.scope,
-	            launch: settings.launch_id,
-	            secret : settings.secret
-	        },
-            provider : {
-            	oauth2 : {
-	            	authorize_uri : baseURL + '/oauth2/authorize',
-	            	token_uri : baseURL + '/oauth2/token'
-	            }
+    authorize() {
+        var settings = this.getSettings();
+        FHIR.oauth2.authorize({
+            client: {
+                client_id: settings.client_id,
+                scope: settings.scope,
+                launch: settings.launch_id,
+                secret: settings.secret
             },
-	        server: settings.api_server_uri
-	    });
-	}
-};
+            provider: {
+                oauth2: {
+                    authorize_uri: settings.oauth2_url + '/authorize',
+                    token_uri: settings.oauth2_url + '/token'
+                }
+            },
+            server: settings.fhir_uri
+        });
+    }
+}
 
 export default smartOnFhir;

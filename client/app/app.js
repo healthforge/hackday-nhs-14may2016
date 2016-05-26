@@ -21,8 +21,10 @@ angular.module('app', [
         $locationProvider.html5Mode({ enabled: true, requireBase: false }).hashPrefix('!');
     })
     .run(() => {
-        // Authenticate (if necessary)
-        //SmartOnFhir.instance().run();
+        if(process.env.OFFLINE !== 'true') {
+            // Authenticate (if necessary)
+            SmartOnFhir.instance().run();
+        }
     })
     .service('LabResultsService', LabResultsService)
 

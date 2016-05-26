@@ -26,9 +26,9 @@ class GraphController {
         });
 
         // Get patients
-        var patientsPromise = LabResultsService.patients.then(function (patients) {
-            vm.patients = patients;
-            $scope.patient = patients[0];
+        var patientsPromise = LabResultsService.getPatients().then(function (bundle) {
+            vm.patients = bundle.entry;
+            $scope.patient = vm.patients[0].resource;
         });
 
         // Populate default graphs
@@ -37,8 +37,6 @@ class GraphController {
                 vm.addGraph(code);
             });
         })
-
-        console.log(process.env.CLIENT_ID);
     }
 
     setExtent(extent) {

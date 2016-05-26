@@ -14,7 +14,7 @@ let graphWindowComponent = function (LabResultsService) {
             var el = element[0].childNodes[0];
             scope.$watch('patient', function (patient) {
                 if (typeof(patient) !== 'undefined') {
-                    LabResultsService.getSeries(attrs.code, patient.id).then(function (seriesData) {
+                    LabResultsService.getSeries(attrs.code, patient).then(function (seriesData) {
                         var margin = {top: 30, right: 10, bottom: 60, left: 40},
                             width = 950 - margin.left - margin.right,
                             height = 160 - margin.top - margin.bottom,
