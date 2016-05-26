@@ -37,6 +37,8 @@ class GraphController {
                 vm.addGraph(code);
             });
         })
+
+        console.log(process.env.CLIENT_ID);
     }
 
     setExtent(extent) {

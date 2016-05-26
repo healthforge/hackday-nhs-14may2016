@@ -1,54 +1,56 @@
-export default function() {
+require('dotenv').config();
 
-	process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+export default function () {
 
-	var express  = require('express');
-	var app      = express();
-	var httpProxy = require('http-proxy');
-	var apiProxy = httpProxy.createProxyServer({
-			ws:             true,
-			secure:         false,
-			changeOrigin:   true,
-			prependPath:    false
-	});
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
-	apiProxy.on('proxyReq', function (proxyReq, req, res) {
-  		//console.log('RAW Request to the target');
-  		//console.log(proxyReq);
-	});
+    var express = require('express');
+    var app = express();
+    var httpProxy = require('http-proxy');
+    var apiProxy = httpProxy.createProxyServer({
+        ws: true,
+        secure: false,
+        changeOrigin: true,
+        prependPath: false
+    });
 
-	//
-	// Listen for the `error` event on `proxy`.
-	apiProxy.on('error', function (err, req, res) {
-	  res.writeHead(500, {
-	    'Content-Type': 'text/plain'
-	  });
+    apiProxy.on('proxyReq', function (proxyReq, req, res) {
+        //console.log('RAW Request to the target');
+        //console.log(proxyReq);
+    });
 
-	  res.end('Something went wrong. And we are reporting a custom error message.');
-	});
+    //
+    // Listen for the `error` event on `proxy`.
+    apiProxy.on('error', function (err, req, res) {
+        res.writeHead(500, {
+            'Content-Type': 'text/plain'
+        });
 
-	var serverAngularJS = 'http://localhost:3000',
-	    serverFHIR = 'https://hackday28apr2016.healthforge.io/fhir/',
-	    serverOAuth2 = 'https://hackday28apr2016.healthforge.io/oauth2/',
-	    serverAuth = 'https://hackday28apr2016.healthforge.io/authenticationendpoint/';
+        res.end('Something went wrong. And we are reporting a custom error message.');
+    });
 
-	app.all("/fhir/*", function(req, res) {
-	    apiProxy.web(req, res, {target: serverFHIR});
-	});
+    var serverAngularJS = 'http://localhost:3000',
+        serverFHIR = process.env.FHIR_URI,
+        serverOAuth2 = process.env.OAUTH2_URI,
+        serverAuth = process.env.AUTH_URI;
 
-	app.all("/oauth2/*", function(req, res) {
-	    apiProxy.web(req, res, {target: serverOAuth2});
-	});
+    app.all("/fhir/*", function (req, res) {
+        apiProxy.web(req, res, {target: serverFHIR});
+    });
 
-	app.all("/authenticationendpoint/*", function(req, res) {
-	    apiProxy.web(req, res, {target: serverAuth});
-	});
+    app.all("/oauth2/*", function (req, res) {
+        apiProxy.web(req, res, {target: serverOAuth2});
+    });
 
-	app.all("/*", function(req, res) {
-	    apiProxy.web(req, res, {target: serverAngularJS});
-	});
+    app.all("/authenticationendpoint/*", function (req, res) {
+        apiProxy.web(req, res, {target: serverAuth});
+    });
 
-	console.log("Proxy ready (Ctrl+C to terminate)...");
+    app.all("/*", function (req, res) {
+        apiProxy.web(req, res, {target: serverAngularJS});
+    });
 
-	app.listen(4000);
+    console.log("Proxy ready (Ctrl+C to terminate)...");
+
+    app.listen(4000);
 }

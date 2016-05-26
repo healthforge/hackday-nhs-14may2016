@@ -38,3 +38,5 @@ node_modules
 dist
 
 sync.sh
+
+/.env

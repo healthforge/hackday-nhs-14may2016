@@ -20,26 +20,12 @@ class smartOnFhir {
 		//this.clearAuthToken();
 		var settings = this.getSettings();
 
-		//console.log(settings);
-
-		if(process.env.NODE_ENV == 'production') {
-			// Production
-			console.log("--Production settings--");
-	        this.initialize({
-	          client_id: "5HsYz3hbBWzcQZMhNXnrfrDCbp0a",
-	          scope: "*",
-	          secret: "0jBMCpnZAP5PiQfBAWD8d8Smfv4a" 
-	        });
-    	} else {
-	        // Development
-			console.log("--Development settings--");
-	        this.initialize({
-	        	client_id: "V50ow8oIgViCBsLW5gvvXyCDjBIa",
-	        	scope: "*",
-	        	secret: "EFdhhfiLum1hx9zNqD3HaPikmaQa"
-	        });
-    	}
-
+		console.log("Initialising smart on fhir");
+		this.initialize({
+			client_id: process.env.CLIENT_ID,
+			scope: "*",
+			secret: process.env.SECRET
+		});
 
 		if (!this.hasAuthToken()) {
 			console.log("OAuth2 token is not set.");
