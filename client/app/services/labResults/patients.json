@@ -129,18 +129,6 @@
         ],
         "birthDate":"1995-04-02"
       }
-    },
-    {
-      "fullUrl":"outcome/1",
-      "resource":{
-        "resourceType":"OperationOutcome",
-        "issue":[
-          {
-            "severity":"warning",
-            "diagnostics":"Parameter with name _sort is not supported for resource type Patient."
-          }
-        ]
-      }
     }
   ]
 }

@@ -19,6 +19,7 @@ Tools required to run this app:
 * `clone` this repository
 * `npm install -g gulp karma karma-cli webpack` install global cli dependencies
 * `npm install` to install dependencies
+* Create an `.env` file in the repository root (local proxy and offline examples provided)
 
 ### Running
 
