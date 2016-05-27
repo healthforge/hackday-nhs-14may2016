@@ -14,7 +14,7 @@ class GraphController {
             fromDate: null,
             toDate: null
         };
-        
+
         // Get codes
         this.graphs = [];
         this.activeGraphs = [];

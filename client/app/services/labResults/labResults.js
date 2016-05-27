@@ -52,20 +52,21 @@ class LabResultsService {
             return this.$http.get(observations)
                 .then(function (res) {
                     var parsed = [];
-                    var line = {};
+                    // observations.json is not in FHIR format, so we need to wrangle it into an approximation 
                     res.data.forEach(function (record) {
-                        if (type in record.lines && record.patientId == patient.identifier[0].value) {
-                            line = record.lines[type];
-                            line.date = record.timestamp;
-                            line.dateObj = new Date(record.timestamp);
-                            line.dateIndex = line.dateObj.getTime();
-                            if ((typeof startDate === 'undefined' || line.dateObj >= startDate)
-                                && (typeof endDate === 'undefined' || line.dateObj <= endDate)) {
-                                parsed.push(line);
+                        angular.forEach(record.lines, function(line) {
+                            if (line.code.code == type && record.patientId == patient.identifier[0].value) {
+                                line.effectiveDateTime = record.timestamp;
+                                line.valueQuantity = { value: line.value, code: line.unit };
+                                var dateObj = new Date(record.timestamp);
+                                if ((typeof startDate === 'undefined' || dateObj >= startDate)
+                                    && (typeof endDate === 'undefined' || dateObj <= endDate)) {
+                                    parsed.push(line);
+                                }
                             }
-                        }
+                        });
                     });
-                    var sorted = vm.$filter('orderBy')(parsed, 'date');
+                    var sorted = vm.$filter('orderBy')(parsed, 'effectiveDateTime');
                     return sorted;
                 });
         } else {
