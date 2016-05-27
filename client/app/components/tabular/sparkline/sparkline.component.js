@@ -44,10 +44,10 @@ let sparklineComponent = function () {
                     .attr("class", "focus")
                     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-                var parseDate = d3.time.format("%Y-%m-%dT%H:%M").parse;
+                var parseDateTime = d3.time.format.iso.parse;
                 seriesData.forEach(function (d) {
-                    d.parsed = parseDate(d.date);
-                    d.value = +d.value;
+                    d.parsed = parseDateTime(d.effectiveDateTime);
+                    d.value = +d.valueQuantity.value;
                 });
 
                 // Scale the range of the data
@@ -122,8 +122,8 @@ let sparklineComponent = function () {
 
                         // Update hover values
                         var hoverData = d3.selectAll(".hover-data")[0][row];
-                        d3.select(hoverData).select(".hover-value").text(d.value);
-                        d3.select(hoverData).select(".hover-unit").text(d.unit);
+                        d3.select(hoverData).select(".hover-value").text(d3.round(d.value,2));
+                        d3.select(hoverData).select(".hover-unit").text(d.valueQuantity.code);
 
                         // Update table hover
                         d3.selectAll(".data-point, .date-heading").classed("current", false);

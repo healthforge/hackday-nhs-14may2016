@@ -27,7 +27,7 @@ config.plugins = config.plugins.concat([
 config.entry = {
     main: './client/app/app.js',
     bootstrap: ['bootstrap-loader'],
-    fhirclient: ['fhirclient']
+    fhirclient: ['./client/app/lib/fhir-client']
 };
 
 module.exports = config;

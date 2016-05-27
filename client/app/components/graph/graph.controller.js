@@ -8,7 +8,7 @@ class GraphController {
         this.$scope = $scope;
 
         // Defaults
-        var defaultCodes = ['PLT', 'CA', 'HBGL'];
+        var defaultCodes = ['777-3', '17861-6', '718-7'];
 
         $scope.brush = {
             fromDate: null,

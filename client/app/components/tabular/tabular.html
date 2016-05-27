@@ -55,7 +55,7 @@
         <thead>
         <tr>
             <th></th>
-            <th>Indicator</th>
+            <th class="indicator">Indicator</th>
             <th>Trend</th>
             <th class="rotate date-heading" ng-repeat="item in vm.dates"  data-date="{{ item.dateIndex }}">
                 <div><span>{{item.date | date:'yyyy-MM-dd'}}</span></div>
@@ -82,7 +82,7 @@
                     <sparkline code="{{graph.code}}" patient="patient" w="200" h="40" data="graph.series"></sparkline>
                 </td>
                 <td class="data-point" ng-repeat="cell in graph.cells" data-date="{{ cell.dateIndex }}">
-                    <span uib-tooltip-template="'allValues.html'">{{ cell.values[0].value || "-" }}</span>
+                    <span uib-tooltip-template="'allValues.html'">{{ (cell.values[0].value | number:2)*1 || "-" }}</span>
                 </td>
             </tr>
         </tbody>

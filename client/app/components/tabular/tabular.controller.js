@@ -9,7 +9,7 @@ class TabularController {
         this.$scope = $scope;
 
         // Defaults
-        var defaultCodes = ['LY', 'CA', 'HBGL'];
+        var defaultCodes = ['777-3', '17861-6', '718-7'];
         var startDate = "2014-04-25";
         var endDate = "2014-05-10";
 
@@ -87,12 +87,14 @@ class TabularController {
     addGraphToDates(graph, dates) {
         var vm = this;
         graph.series.forEach(function (datum) {
+            datum.dateObj = new Date(datum.effectiveDateTime);
+            datum.dateIndex = datum.dateObj.getTime();
             var index = _.findIndex(dates, { 'dateIndex': datum.dateIndex });
             if (index == -1) {
                 index = _.sortedIndex(dates, {'dateIndex': datum.dateIndex}, 'dateIndex');
                 dates.splice(index, 0, {
                     dateIndex: datum.dateIndex,
-                    date: datum.date,
+                    date: datum.effectiveDateTime,
                     dateObj: datum.dateObj,
                     codes: []
                 });

@@ -50,10 +50,10 @@ let graphWindowComponent = function (LabResultsService) {
                             .attr("class", "context")
                             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-                        var parseDate = d3.time.format("%Y-%m-%dT%H:%M").parse;
+                        var parseDateTime = d3.time.format.iso.parse;
                         seriesData.forEach(function (d) {
-                            d.parsed = parseDate(d.date);
-                            d.value = +d.value;
+                            d.parsed = parseDateTime(d.effectiveDateTime);
+                            d.value = +d.valueQuantity.value;
                         });
 
                         // Scale the range of the data
